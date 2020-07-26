@@ -28,29 +28,26 @@ enum LeftMenuEnum: Int {
     case rateThisApp
     case leglePage
 
-
-
 }
 
 class LeftMenuVC: UIViewController {
 
+    @IBOutlet weak var topImageView: UIImageView!
     @IBOutlet weak var myTableView: UITableView!
-
-
     @IBOutlet weak var lblVerison: UILabel!
-    
     @IBOutlet weak var viewVersion: UIView!
     var tableData = [LeftMenuModel]()
 
-    
-    
+
     class func getInstance()-> LeftMenuVC {
        return LeftMenuVC.viewController(storyboard: Constants.Storyboard.Dashboard)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Left Menu"
+        let jeremyGif = UIImage.gifImageWithName("splashgif")
+        topImageView.image = jeremyGif
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,7 +83,7 @@ extension LeftMenuVC: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "LeftMenuCell", for: indexPath) as? LeftMenuCell {
-            cell.selectionStyle = .none
+            cell.selectionStyle = .gray
             cell.backgroundColor = UIColor.clear
             cell.lblName.text = tableData[indexPath.row].name
             

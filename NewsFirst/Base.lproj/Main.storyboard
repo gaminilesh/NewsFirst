@@ -10,7 +10,7 @@
         <!--Loading Screen-->
         <scene sceneID="o7j-Ro-JRc">
             <objects>
-                <viewController storyboardIdentifier="LoadingScreen" automaticallyAdjustsScrollViewInsets="NO" id="THf-gj-HgR" customClass="LoadingScreen" customModule="CalltoMax" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoadingScreen" automaticallyAdjustsScrollViewInsets="NO" id="THf-gj-HgR" customClass="LoadingScreen" customModule="NewsFirst" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3W5-BR-MEA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -43,7 +43,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.98028594260000002" green="0.9804533124" blue="0.98027533290000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="f7l-Xo-fAX" firstAttribute="leading" secondItem="Qow-tN-2sm" secondAttribute="leading" id="6DA-yc-zaw"/>
                             <constraint firstItem="Qow-tN-2sm" firstAttribute="trailing" secondItem="f7l-Xo-fAX" secondAttribute="trailing" id="P90-kU-mmq"/>
