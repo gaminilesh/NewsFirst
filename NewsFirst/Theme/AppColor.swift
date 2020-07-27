@@ -11,6 +11,10 @@ import UIKit
 var appTheamColor = AppColor()
 
 class AppColor {
+    var AppNavigation : UIColor = {  // Use Navigationbar Submmit Button Utility Button
+        return  #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
+    }()
+
     var appColorPrimary : UIColor = {
      return  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     }()
@@ -38,6 +42,7 @@ class AppColor {
     var viewLight : UIColor = {
      return  #colorLiteral(red: 0.3137254902, green: 0.9294117647, blue: 0.9294117647, alpha: 1)  //50EDEDED
     }()
+    /// Change Theme Light To Dark
     var black : UIColor = {
      if isDark {
          return  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)

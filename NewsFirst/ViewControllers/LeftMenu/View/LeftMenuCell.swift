@@ -9,6 +9,7 @@
 import UIKit
 
 class LeftMenuCell: UITableViewCell {
+    @IBOutlet weak var imgIcon: UIImageView!
 
     @IBOutlet weak var lblName: UILabel!
     override func awakeFromNib() {

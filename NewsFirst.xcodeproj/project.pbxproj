@@ -138,8 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				04FEF5DE24CD2687004CB475 /* HomeVC.swift */,
-				045E5FE024CD3CF0004F4FAA /* LeftMenuCell.swift */,
-				045E5FDE24CD3CDF004F4FAA /* LeftMenuVC.swift */,
+				046594E424CE80F800E8CD62 /* LeftMenu */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -151,6 +150,23 @@
 				046594E224CE793E00E8CD62 /* SideMenu.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		046594E424CE80F800E8CD62 /* LeftMenu */ = {
+			isa = PBXGroup;
+			children = (
+				046594E524CE811000E8CD62 /* View */,
+				045E5FDE24CD3CDF004F4FAA /* LeftMenuVC.swift */,
+			);
+			path = LeftMenu;
+			sourceTree = "<group>";
+		};
+		046594E524CE811000E8CD62 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				045E5FE024CD3CF0004F4FAA /* LeftMenuCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		04FEF5CE24CD2687004CB475 = {

@@ -31,5 +31,7 @@ struct Constants
 }
 extension Notification.Name {
     static let changeTheme = Notification.Name("ChangeTheme")
+    static let popToRootMenu = Notification.Name("popToRootMenu")
+
 }
 

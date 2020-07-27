@@ -10,9 +10,13 @@ import UIKit
 struct LeftMenuModel {
     var id: LeftMenuEnum = .none
     var name: String = ""
-    init(id: LeftMenuEnum, name: String) {
+    var image: String = ""
+    var isArrow: Bool = false
+    init(id: LeftMenuEnum, name: String,image: String, isArrow:Bool = false) {
         self.id = id
         self.name = name
+        self.image = image
+        self.isArrow = isArrow
     }
 }
 
@@ -48,6 +52,7 @@ class LeftMenuVC: UIViewController {
         let jeremyGif = UIImage.gifImageWithName("splashgif")
         topImageView.image = jeremyGif
 
+        viewVersion.backgroundColor = appTheamColor.greyLight
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,8 +63,15 @@ class LeftMenuVC: UIViewController {
     func fillData() {
         tableData.removeAll()
         
-        tableData.append(LeftMenuModel(id: .home, name: "Home"))
-        tableData.append(LeftMenuModel(id: .search, name: "Search"))
+        tableData.append(LeftMenuModel(id: .home, name: "Home", image: "home"))
+        tableData.append(LeftMenuModel(id: .search, name: "Search", image: "search"))
+        tableData.append(LeftMenuModel(id: .saveStories, name: "Save Stories", image: "savedStories"))
+        tableData.append(LeftMenuModel(id: .notificationSetting, name: "Notification Setting", image: "notificationSetting",isArrow:true))
+        tableData.append(LeftMenuModel(id: .breakingNewsHub, name: "Breaking News Hub", image: "breakingNewsHub",isArrow:true))
+        tableData.append(LeftMenuModel(id: .notificationHub, name: "Notification Hub", image: "notificationHub",isArrow:true))
+        tableData.append(LeftMenuModel(id: .shareThisApp, name: "Share This App", image: "shareThisApp"))
+        tableData.append(LeftMenuModel(id: .rateThisApp, name: "Rate This App", image: "rateThisApp"))
+        tableData.append(LeftMenuModel(id: .leglePage, name: "Legle Page", image: "legalPages",isArrow:true))
 
         myTableView.reloadData()
         myTableView.tableFooterView = UIView(frame: .zero)
@@ -85,8 +97,14 @@ extension LeftMenuVC: UITableViewDataSource, UITableViewDelegate {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "LeftMenuCell", for: indexPath) as? LeftMenuCell {
             cell.selectionStyle = .gray
             cell.backgroundColor = UIColor.clear
+            cell.imgIcon.image = UIImage(named:tableData[indexPath.row].image )
             cell.lblName.text = tableData[indexPath.row].name
-            
+            if tableData[indexPath.row].isArrow {
+                cell.accessoryType = .disclosureIndicator;
+            }else {
+                cell.accessoryType = .none;
+            }
+
             return cell
         }
         return UITableViewCell()
