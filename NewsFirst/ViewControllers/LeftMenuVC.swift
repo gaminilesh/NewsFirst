@@ -40,7 +40,7 @@ class LeftMenuVC: UIViewController {
 
 
     class func getInstance()-> LeftMenuVC {
-       return LeftMenuVC.viewController(storyboard: Constants.Storyboard.Dashboard)
+       return LeftMenuVC.viewController(storyboard: Constants.Storyboard.SideMenu)
     }
     
     override func viewDidLoad() {

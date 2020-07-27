@@ -11,10 +11,9 @@ import UIKit
 
 struct AppFont {
     //MARK: Font
-    static let RegularFontName = "Montserrat-Regular"
-    static let SemiBoldFontName = "Montserrat-SemiBold"
-    static let MediumFontName = "Montserrat-Medium"
-    static let BoldFontName = "Montserrat-Bold"
+    static let RegularFontName = "MADETOMMY"
+    static let MediumFontName = "MADETOMMY-Medium"
+    static let BoldFontName = "MADETOMMY-Bold"
 
 
     struct Size {
@@ -49,17 +48,17 @@ struct AppFont {
     static let caption1: UIFont = UIFont(name: RegularFontName, size: Size.caption1)!
     static let caption2: UIFont = UIFont(name: RegularFontName, size: Size.caption2)!
 
-    static let SemiBold_Title: UIFont = UIFont(name: SemiBoldFontName, size: Size.Title)!
-    static let SemiBold_Title1: UIFont = UIFont(name: SemiBoldFontName, size: Size.Title1)!
-    static let SemiBold_Title2: UIFont = UIFont(name: SemiBoldFontName, size: Size.Title2)!
-    static let SemiBold_Title3: UIFont = UIFont(name: SemiBoldFontName, size: Size.Title3)!
-    static let SemiBold_Headline: UIFont = UIFont(name: SemiBoldFontName, size: Size.Headline)!
-    static let SemiBold_Body: UIFont = UIFont(name: SemiBoldFontName, size: Size.Body)!
-    static let SemiBold_Callout: UIFont = UIFont(name: SemiBoldFontName, size: Size.Callout)!
-    static let SemiBold_Subhead: UIFont = UIFont(name: SemiBoldFontName, size: Size.Subhead)!
-    static let SemiBold_Footnote: UIFont = UIFont(name: SemiBoldFontName, size: Size.Footnote)!
-    static let SemiBold_caption1: UIFont = UIFont(name: SemiBoldFontName, size: Size.caption1)!
-    static let SemiBold_caption2: UIFont = UIFont(name: SemiBoldFontName, size: Size.caption2)!
+//    static let SemiBold_Title: UIFont = UIFont(name: SemiBoldFontName, size: Size.Title)!
+//    static let SemiBold_Title1: UIFont = UIFont(name: SemiBoldFontName, size: Size.Title1)!
+//    static let SemiBold_Title2: UIFont = UIFont(name: SemiBoldFontName, size: Size.Title2)!
+//    static let SemiBold_Title3: UIFont = UIFont(name: SemiBoldFontName, size: Size.Title3)!
+//    static let SemiBold_Headline: UIFont = UIFont(name: SemiBoldFontName, size: Size.Headline)!
+//    static let SemiBold_Body: UIFont = UIFont(name: SemiBoldFontName, size: Size.Body)!
+//    static let SemiBold_Callout: UIFont = UIFont(name: SemiBoldFontName, size: Size.Callout)!
+//    static let SemiBold_Subhead: UIFont = UIFont(name: SemiBoldFontName, size: Size.Subhead)!
+//    static let SemiBold_Footnote: UIFont = UIFont(name: SemiBoldFontName, size: Size.Footnote)!
+//    static let SemiBold_caption1: UIFont = UIFont(name: SemiBoldFontName, size: Size.caption1)!
+//    static let SemiBold_caption2: UIFont = UIFont(name: SemiBoldFontName, size: Size.caption2)!
 
 
     

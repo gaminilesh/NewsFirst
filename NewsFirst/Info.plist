@@ -26,10 +26,9 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Montserrat-SemiBold.ttf</string>
-		<string>Montserrat-Regular.ttf</string>
-		<string>Montserrat-Medium.ttf</string>
-		<string>Montserrat-Bold.ttf</string>
+		<string>tommy_bold.ttf</string>
+		<string>tommy_medium.ttf</string>
+		<string>tommy_regular.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

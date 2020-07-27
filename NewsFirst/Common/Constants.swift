@@ -16,6 +16,7 @@ struct Constants
     struct Storyboard {
         static let Main = "Main"
         static let Dashboard = "Dashboard"
+        static let SideMenu = "SideMenu"
 
     }
     struct Navigation {
