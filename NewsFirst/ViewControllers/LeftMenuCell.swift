@@ -25,4 +25,5 @@ class LeftMenuCell: UITableViewCell {
     }
 
     // this is new
+    // check ankit
 }
