@@ -2,9 +2,6 @@
 //  AppFont.swift
 //
 //
-//  Created by Ravi Malviya on 27/04/18.
-//  Copyright © 2018 ravi's imac. All rights reserved.
-//
 
 import Foundation
 import UIKit

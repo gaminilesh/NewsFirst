@@ -6,7 +6,8 @@ target 'NewsFirst' do
   use_frameworks!
   pod 'SideMenu'
   pod 'SDWebImage'
-
+  pod 'SwiftyJSON', '~> 4.0'
+  pod 'Kingfisher', '~> 4.0'
   # Pods for NewsFirst
 
 end

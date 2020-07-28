@@ -1,22 +1,30 @@
 PODS:
+  - Kingfisher (4.10.1)
   - SDWebImage (5.8.4):
     - SDWebImage/Core (= 5.8.4)
   - SDWebImage/Core (5.8.4)
   - SideMenu (6.4.9)
+  - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
+  - Kingfisher (~> 4.0)
   - SDWebImage
   - SideMenu
+  - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
+    - Kingfisher
     - SDWebImage
     - SideMenu
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
   SideMenu: 8ef57a3cfc024a2d3fc1c036c7fe98537baec9e0
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 89ec1e2c62e81617d06b85eefdfd1dbfcf110633
+PODFILE CHECKSUM: 93ee1ce216e905c684c4df3c16ed68b151e12c5d
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.8.4
