@@ -78,7 +78,15 @@ class LeftMenuVC: UIViewController {
 
     }
     func changeViewController(_ menu: LeftMenuModel) {
-        
+        if menu.id == LeftMenuEnum.notificationSetting {
+            let controller = NotificationSettingVC.getInstance()
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+        else if menu.id == LeftMenuEnum.saveStories {
+            let controller = SaveStoryVC.getInstance()
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+
     }
 }
 
