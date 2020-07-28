@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Loading Screen-->
+        <scene sceneID="o7j-Ro-JRc">
+            <objects>
+                <viewController storyboardIdentifier="LoadingScreen" automaticallyAdjustsScrollViewInsets="NO" id="THf-gj-HgR" customClass="LoadingScreen" customModule="NewsFirst" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3W5-BR-MEA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7l-Xo-fAX">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mobifinIcon" translatesAutoresizingMaskIntoConstraints="NO" id="wYl-Bx-XKy">
+                                        <rect key="frame" x="191" y="369" width="32" height="60"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="RQH-lM-u34"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJ6-kx-gEv">
+                                        <rect key="frame" x="207" y="788" width="0.0" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="rJ6-kx-gEv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="f7l-Xo-fAX" secondAttribute="leading" constant="10" id="0SH-dk-GQh"/>
+                                    <constraint firstItem="wYl-Bx-XKy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="f7l-Xo-fAX" secondAttribute="leading" constant="40" id="QbR-0w-ag5"/>
+                                    <constraint firstItem="rJ6-kx-gEv" firstAttribute="centerX" secondItem="f7l-Xo-fAX" secondAttribute="centerX" id="SbE-An-xVj"/>
+                                    <constraint firstAttribute="bottom" secondItem="rJ6-kx-gEv" secondAttribute="bottom" constant="30" id="TM1-uE-nzN"/>
+                                    <constraint firstItem="wYl-Bx-XKy" firstAttribute="centerX" secondItem="f7l-Xo-fAX" secondAttribute="centerX" id="fEa-fD-obY"/>
+                                    <constraint firstItem="wYl-Bx-XKy" firstAttribute="centerY" secondItem="f7l-Xo-fAX" secondAttribute="centerY" constant="-10" id="hmd-hn-MCo"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="f7l-Xo-fAX" firstAttribute="leading" secondItem="Qow-tN-2sm" secondAttribute="leading" id="6DA-yc-zaw"/>
+                            <constraint firstItem="Qow-tN-2sm" firstAttribute="trailing" secondItem="f7l-Xo-fAX" secondAttribute="trailing" id="P90-kU-mmq"/>
+                            <constraint firstItem="Qow-tN-2sm" firstAttribute="bottom" secondItem="f7l-Xo-fAX" secondAttribute="bottom" id="R3V-cU-x6A"/>
+                            <constraint firstItem="f7l-Xo-fAX" firstAttribute="top" secondItem="Qow-tN-2sm" secondAttribute="top" id="SVa-l3-uQn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Qow-tN-2sm"/>
+                    </view>
+                    <connections>
+                        <outlet property="lblDate" destination="rJ6-kx-gEv" id="OEx-xQ-lRE"/>
+                        <outlet property="loadingImageView" destination="wYl-Bx-XKy" id="UDZ-EX-KVs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JAp-Ye-YWs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1610" y="333"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="mobifinIcon" width="16" height="16"/>
+    </resources>
+</document>

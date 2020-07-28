@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--HomeVC-->
+        <scene sceneID="GVd-aO-bgX">
+            <objects>
+                <viewController storyboardIdentifier="HomeVC" id="sxW-55-hTH" customClass="HomeVC" customModule="NewsFirst" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="m6d-SO-3NP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnF-9i-BoB">
+                                <rect key="frame" x="184" y="239" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="leftMenuAction:" destination="sxW-55-hTH" eventType="touchUpInside" id="8nO-Z9-nGH"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="K9Q-M3-fez">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="sxW-55-hTH" id="zu1-hU-Zhu"/>
+                                    <outlet property="delegate" destination="sxW-55-hTH" id="gE8-Dz-g8x"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="K9Q-M3-fez" firstAttribute="leading" secondItem="dH9-Sa-W86" secondAttribute="leading" id="6IJ-fI-FNR"/>
+                            <constraint firstItem="dH9-Sa-W86" firstAttribute="trailing" secondItem="K9Q-M3-fez" secondAttribute="trailing" id="Kbv-EE-lQ7"/>
+                            <constraint firstItem="dH9-Sa-W86" firstAttribute="bottom" secondItem="K9Q-M3-fez" secondAttribute="bottom" id="pbQ-UQ-21Z"/>
+                            <constraint firstItem="K9Q-M3-fez" firstAttribute="top" secondItem="dH9-Sa-W86" secondAttribute="top" id="yOd-W6-uB1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dH9-Sa-W86"/>
+                    </view>
+                    <connections>
+                        <outlet property="tblList" destination="K9Q-M3-fez" id="Y8U-QE-IXp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rcn-or-kVX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-172" y="21"/>
+        </scene>
+    </scenes>
+</document>
