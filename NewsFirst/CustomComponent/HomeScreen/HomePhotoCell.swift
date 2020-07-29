@@ -60,6 +60,7 @@ class HomePhotoCell: UITableViewCell {
         let viewNib = UINib(nibName: "CollectionViewPhotoCell", bundle: nil)
         clvList.register(viewNib, forCellWithReuseIdentifier: "CollectionViewPhotoCell")
     }
+     
     
     func setData() {
         guard let obj = objNews else {

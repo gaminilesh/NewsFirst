@@ -14,7 +14,7 @@ class RippleView: UIView {
     @IBOutlet weak var btnText: UIButton!
     @IBOutlet weak var viewRipple: UIView!
     
-    
+    //Testing
     class func instanceFromNib() -> RippleView {
         return UINib(nibName: "RippleView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! RippleView
     }

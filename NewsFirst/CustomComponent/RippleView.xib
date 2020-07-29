@@ -25,7 +25,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="146" height="130"/>
                     <color key="backgroundColor" red="0.67843137254901964" green="0.0" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
-                    <state key="normal" title="Button"/>
+                    <state key="normal" title="Butto"/>
                     <connections>
                         <action selector="btnTextTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="6XH-6h-DwX"/>
                     </connections>

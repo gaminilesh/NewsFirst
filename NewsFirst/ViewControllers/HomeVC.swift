@@ -46,7 +46,7 @@ class HomeVC: UIViewController {
         self.view.addSubview(reppleView)
         
         reppleView.showRippleEffecr = true
-        
+         
         let img = UIImageView()
         img.tag = 120
         pinViewFram = CGRect(x: 100, y: 400, width: 100, height: 100)
