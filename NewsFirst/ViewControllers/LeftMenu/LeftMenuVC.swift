@@ -49,8 +49,8 @@ class LeftMenuVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let jeremyGif = UIImage.gifImageWithName("splashgif")
-        topImageView.image = jeremyGif
+        //let jeremyGif = UIImage.gifImageWithName("splashgif")
+//        topImageView.image = jeremyGif
 
         viewVersion.backgroundColor = appTheamColor.greyLight
     }

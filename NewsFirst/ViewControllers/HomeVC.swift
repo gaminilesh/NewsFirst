@@ -9,7 +9,7 @@
 import UIKit
 import SideMenu
 
-class HomeVC: UIViewController {
+class HomeVC: BaseViewController {
 
     class func getInstance()-> HomeVC {
         return HomeVC.viewController(storyboard: Constants.Storyboard.Dashboard)
@@ -62,9 +62,20 @@ class HomeVC: UIViewController {
         let v = BottomCustomTab.instanceFromNib()
         v.frame = CGRect(x: 0, y: 200, width: UIScreen.main.bounds.size.width, height: 40)
         self.view.addSubview(v)
+
+         setupNavigation()
+
     }
     
-    @IBAction func leftMenuAction(_ sender: Any) {
+    //TODO:- Custome Navigation Render.
+    func setupNavigation()  {
+        extendedLayoutIncludesOpaqueBars = true
+        setNavigationBarSetup()
+        navigationLeftButtonSetup(action: #selector(goLeftNavigationAction(sender:)))
+    }
+
+
+     @objc override func goLeftNavigationAction(sender: Any) {
         let sideMenu = LeftMenuVC.getInstance()
         let menu = SideMenuNavigationController(rootViewController: sideMenu)
         menu.navigationBar.isHidden = true

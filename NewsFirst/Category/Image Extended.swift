@@ -17,12 +17,12 @@ extension UIImageView {
             if isRefreshCash == true {
                 self.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: placeholderImage), options: .refreshCached)
                 self.sd_imageIndicator = SDWebImageActivityIndicator.gray
-                self.sd_imageIndicator = SDWebImageProgressIndicator.`default`
+//                self.sd_imageIndicator = SDWebImageProgressIndicator.`default`
             }
             else{
                 self.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: placeholderImage))
                 self.sd_imageIndicator = SDWebImageActivityIndicator.gray
-                self.sd_imageIndicator = SDWebImageProgressIndicator.`default`
+//                self.sd_imageIndicator = SDWebImageProgressIndicator.`default`
             }
         }
         else{

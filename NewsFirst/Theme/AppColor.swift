@@ -12,7 +12,7 @@ var appTheamColor = AppColor()
 
 class AppColor {
     var AppNavigation : UIColor = {  // Use Navigationbar Submmit Button Utility Button
-        return  #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
+        return  #colorLiteral(red: 0.8666666667, green: 0.8666666667, blue: 0.8666666667, alpha: 1)
     }()
 
     var appColorPrimary : UIColor = {
