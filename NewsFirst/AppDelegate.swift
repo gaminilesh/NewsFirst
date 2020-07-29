@@ -11,7 +11,8 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+ 
+    
     var window: UIWindow?
     
     class var shared: AppDelegate {
@@ -34,6 +35,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navigation
 
     }
-
 }
 

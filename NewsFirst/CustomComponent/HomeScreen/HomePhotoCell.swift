@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum PhotoCellType : String {
+    case Photos = "Photos"
+    case Video = "Video"
+}
+
 class HomePhotoCell: UITableViewCell {
     
     @IBOutlet weak var lblTitle: UILabel!
@@ -16,6 +21,8 @@ class HomePhotoCell: UITableViewCell {
     @IBOutlet weak var pageIndicater: UIPageControl!
     @IBOutlet weak var clvList: UICollectionView!
     var tblReference : UITableView!
+    
+    var _type : PhotoCellType! = .Photos
     
     var imageList : [News]?
     
@@ -58,13 +65,23 @@ class HomePhotoCell: UITableViewCell {
         guard let obj = objNews else {
             return
         }
-        
+        imageList = obj.newsList
         lblDescription.text = obj.title
         
-        imageList = obj.newsList
-        pageIndicater.numberOfPages = imageList?.count ?? 0
-        lblCount.text = "1/\(imageList?.count ?? 0)"
+        if _type == .Video {
+            lblTitle.text = "Video"
+            pageIndicater.isHidden = true
+            lblCount.isHidden = true
+        }
+        else {
+            lblTitle.text = "Photos"
+            pageIndicater.isHidden = false
+            lblCount.isHidden = false
+            pageIndicater.numberOfPages = imageList?.count ?? 0
+            lblCount.text = "1/\(imageList?.count ?? 0)"
+        }
         
+        clvList.reloadData()
     }
     
 }
@@ -92,13 +109,21 @@ extension HomePhotoCell : UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageList?.count ?? 0
+        return (_type == .Video ? 1 : (imageList?.count ?? 0))
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewPhotoCell", for: indexPath) as! CollectionViewPhotoCell
-        let news = imageList?[indexPath.row]
-        if let str = news?.imageURl, str != "" {
-            cell.imgvPhoto.kf.setImage(with: URL(string: str)!)
+        
+        if _type == .Video {
+            if let str = objNews?.imageURl, str != "" {
+                cell.imgvPhoto.kf.setImage(with: URL(string: str)!)
+            }
+        }
+        else {
+            let news = imageList?[indexPath.row]
+            if let str = news?.imageURl, str != "" {
+                cell.imgvPhoto.kf.setImage(with: URL(string: str)!)
+            }
         }
         return cell
     }
