@@ -16,6 +16,7 @@ class BottomCustomTabCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        lblTitle.font = AppFont.Headline
     }
 
 }

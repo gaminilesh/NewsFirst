@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,7 +24,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="K9Q-M3-fez">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="683"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -33,23 +33,58 @@
                                     <outlet property="delegate" destination="sxW-55-hTH" id="gE8-Dz-g8x"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="duh-Na-M34">
+                                <rect key="frame" x="0.0" y="827" width="414" height="35"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="6Fb-9J-mZ6"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cGp-0l-v7X" customClass="BreakingNewsView" customModule="NewsFirst" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="100"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="BWA-Oa-cMM"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U6K-xU-Tw7" customClass="LiveNewsPopUpView" customModule="NewsFirst" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="652" width="414" height="175"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="175" id="zOa-b1-Zpb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="duh-Na-M34" firstAttribute="top" secondItem="U6K-xU-Tw7" secondAttribute="bottom" id="5Vh-dc-dVn"/>
                             <constraint firstItem="K9Q-M3-fez" firstAttribute="leading" secondItem="dH9-Sa-W86" secondAttribute="leading" id="6IJ-fI-FNR"/>
+                            <constraint firstItem="duh-Na-M34" firstAttribute="top" secondItem="K9Q-M3-fez" secondAttribute="bottom" id="6Wp-vP-Ic4"/>
+                            <constraint firstItem="cGp-0l-v7X" firstAttribute="leading" secondItem="dH9-Sa-W86" secondAttribute="leading" id="D2h-e3-AOI"/>
                             <constraint firstItem="dH9-Sa-W86" firstAttribute="trailing" secondItem="K9Q-M3-fez" secondAttribute="trailing" id="Kbv-EE-lQ7"/>
-                            <constraint firstItem="dH9-Sa-W86" firstAttribute="bottom" secondItem="K9Q-M3-fez" secondAttribute="bottom" id="pbQ-UQ-21Z"/>
-                            <constraint firstItem="K9Q-M3-fez" firstAttribute="top" secondItem="dH9-Sa-W86" secondAttribute="top" id="yOd-W6-uB1"/>
+                            <constraint firstItem="dH9-Sa-W86" firstAttribute="trailing" secondItem="U6K-xU-Tw7" secondAttribute="trailing" id="KyF-B1-j6W"/>
+                            <constraint firstItem="U6K-xU-Tw7" firstAttribute="leading" secondItem="dH9-Sa-W86" secondAttribute="leading" id="Zxc-we-eaz"/>
+                            <constraint firstItem="duh-Na-M34" firstAttribute="leading" secondItem="m6d-SO-3NP" secondAttribute="leading" id="aux-jM-SLc"/>
+                            <constraint firstItem="dH9-Sa-W86" firstAttribute="trailing" secondItem="cGp-0l-v7X" secondAttribute="trailing" id="fIB-fd-Vkp"/>
+                            <constraint firstItem="cGp-0l-v7X" firstAttribute="top" secondItem="dH9-Sa-W86" secondAttribute="top" id="h4e-aM-btW"/>
+                            <constraint firstItem="K9Q-M3-fez" firstAttribute="top" secondItem="cGp-0l-v7X" secondAttribute="bottom" id="pof-u8-esY"/>
+                            <constraint firstAttribute="trailing" secondItem="duh-Na-M34" secondAttribute="trailing" id="tmV-Db-plE"/>
+                            <constraint firstItem="dH9-Sa-W86" firstAttribute="bottom" secondItem="duh-Na-M34" secondAttribute="bottom" id="uKF-nF-K7f"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dH9-Sa-W86"/>
                     </view>
                     <connections>
+                        <outlet property="bottomView" destination="duh-Na-M34" id="v9i-Jp-a0O"/>
                         <outlet property="tblList" destination="K9Q-M3-fez" id="Y8U-QE-IXp"/>
+                        <outlet property="viewBrekingNews" destination="cGp-0l-v7X" id="cDA-ER-kFN"/>
+                        <outlet property="viewBrekingNewsHeightConstraint" destination="BWA-Oa-cMM" id="Sf1-fa-hgN"/>
+                        <outlet property="viewLiveNewsPopup" destination="U6K-xU-Tw7" id="PJR-cr-M7F"/>
+                        <outlet property="viewLiveNewsPopupHeightConstraint" destination="zOa-b1-Zpb" id="zbu-aW-BRn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rcn-or-kVX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-172" y="21"/>
+            <point key="canvasLocation" x="-172.46376811594203" y="20.758928571428569"/>
         </scene>
     </scenes>
 </document>

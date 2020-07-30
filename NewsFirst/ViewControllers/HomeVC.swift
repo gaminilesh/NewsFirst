@@ -10,16 +10,23 @@ import UIKit
 import SideMenu
 
 class HomeVC: BaseViewController {
-
+    
     class func getInstance()-> HomeVC {
         return HomeVC.viewController(storyboard: Constants.Storyboard.Dashboard)
     }
     
     var lastPoint : CGPoint = CGPoint.zero
-     var pinViewFram : CGRect = CGRect.zero
+    var pinViewFram : CGRect = CGRect.zero
     
     @IBOutlet weak var tblList: UITableView!
+    @IBOutlet weak var bottomView: UIView!
     var reppleView = RippleView.instanceFromNib()
+    let bottomTabView = BottomCustomTab.instanceFromNib()
+    
+    @IBOutlet weak var viewBrekingNews: BreakingNewsView!
+    @IBOutlet weak var viewBrekingNewsHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var viewLiveNewsPopup: LiveNewsPopUpView!
+    @IBOutlet weak var viewLiveNewsPopupHeightConstraint: NSLayoutConstraint!
     
     var newsList = [News]()
     override func viewDidLoad() {
@@ -41,12 +48,8 @@ class HomeVC: BaseViewController {
         }
         
         
-        reppleView.frame = CGRect(x: (UIScreen.main.bounds.size.width - 90), y: (UIScreen.main.bounds.size.height - 110), width: 50, height: 50)
-        
         self.view.addSubview(reppleView)
         
-        reppleView.showRippleEffecr = true
-         
         let img = UIImageView()
         img.tag = 120
         pinViewFram = CGRect(x: 100, y: 400, width: 100, height: 100)
@@ -58,13 +61,56 @@ class HomeVC: BaseViewController {
         
         self.view.addSubview(img)
         
+//        let panGesture1 = UIPanGestureRecognizer(target: self, action: #selector(self.draggedLiveNewsView(_:)))
+//        viewLiveNewsPopup.isUserInteractionEnabled = true
+//        viewLiveNewsPopup.addGestureRecognizer(panGesture1)
         
-        let v = BottomCustomTab.instanceFromNib()
-        v.frame = CGRect(x: 0, y: 200, width: UIScreen.main.bounds.size.width, height: 40)
-        self.view.addSubview(v)
-
-         setupNavigation()
-
+        bottomView.addSubview(bottomTabView)
+        bottomTabView.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        bottomView.addConstraint(NSLayoutConstraint(item: bottomTabView, attribute: .top, relatedBy: .equal, toItem: bottomView, attribute: .top, multiplier: 1, constant: 0))
+        bottomView.addConstraint(NSLayoutConstraint(item: bottomTabView, attribute: .bottom, relatedBy: .equal, toItem: bottomView, attribute: .bottom, multiplier: 1, constant: 0))
+        bottomView.addConstraint(NSLayoutConstraint(item: bottomTabView, attribute: .leading, relatedBy: .equal, toItem: bottomView, attribute: .leading, multiplier: 1, constant: 0))
+        bottomView.addConstraint(NSLayoutConstraint(item: bottomTabView, attribute: .trailing, relatedBy: .equal, toItem: bottomView, attribute: .trailing, multiplier: 1, constant: 0))
+        
+        //        let views = ["view":bottomTabView]
+        //        bottomView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[view]", options: [], metrics: nil, views: views))
+        //        bottomView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[view]", options: [], metrics: nil, views: views))
+        
+        //        bottomTabView.frame = CGRect(x: 0, y: 200, width: UIScreen.main.bounds.size.width, height: 40)
+        //        self.view.addSubview(bottomTabView)
+        //bottomTabView.clvList.reloadData()
+        bottomView.layoutIfNeeded()
+        setupNavigation()
+        
+        // reppleView.frame = CGRect(x: (UIScreen.main.bounds.size.width - 85), y: (UIScreen.main.bounds.size.height - 125), width: 50, height: 50)
+        
+        
+        reppleView.translatesAutoresizingMaskIntoConstraints = false
+        
+        //        reppleView.addConstraint(NSLayoutConstraint(item: bottomTabView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50))
+        //         reppleView.addConstraint(NSLayoutConstraint(item: bottomTabView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50))
+        self.view.addConstraint(NSLayoutConstraint(item: reppleView, attribute: .bottom, relatedBy: .equal, toItem: bottomView, attribute: .top, multiplier: 1, constant: -35))
+        
+        self.view.addConstraint(NSLayoutConstraint(item: reppleView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: -35))
+        reppleView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        reppleView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        reppleView.showRippleEffecr = true
+        
+        reppleView.onRippleTap = { (sender) in
+            self.viewLiveNewsPopup.isHidden = false
+            self.reppleView.isHidden = true
+        }
+        
+        viewBrekingNews.onButtonCloseTap = { (sender) in
+            self.viewBrekingNewsHeightConstraint.constant = 0
+            UIView.animate(withDuration: 0.9, animations: {
+                self.view.layoutIfNeeded()
+            })
+        }
+        viewLiveNewsPopup.newsList = [newsList[1], newsList[2]] 
     }
     
     //TODO:- Custome Navigation Render.
@@ -73,9 +119,9 @@ class HomeVC: BaseViewController {
         setNavigationBarSetup()
         navigationLeftButtonSetup(action: #selector(goLeftNavigationAction(sender:)))
     }
-
-
-     @objc override func goLeftNavigationAction(sender: Any) {
+    
+    
+    @objc override func goLeftNavigationAction(sender: Any) {
         let sideMenu = LeftMenuVC.getInstance()
         let menu = SideMenuNavigationController(rootViewController: sideMenu)
         menu.navigationBar.isHidden = true
@@ -94,75 +140,145 @@ class HomeVC: BaseViewController {
     }
     
     
-        @objc func draggedView(_ sender:UIPanGestureRecognizer) {
-    
-            switch sender.state {
-                case .began:
-                    var center = sender.view?.frame.origin
+    @objc func draggedView(_ sender:UIPanGestureRecognizer) {
+        
+        switch sender.state {
+            case .began:
+                var center = sender.view?.frame.origin
+                let translation = sender.translation(in: sender.view)
+                center = CGPoint(x: center!.x + translation.x, y: center!.y + translation.y)
+                lastPoint = translation
+                break;
+            case .changed:
+                if let _ = sender.view as? UIImageView {
+                    //SA
                     let translation = sender.translation(in: sender.view)
-                    center = CGPoint(x: center!.x + translation.x, y: center!.y + translation.y)
+                    let diffX = lastPoint.x - translation.x
+                    let diffY = lastPoint.y - translation.y
+                    
+                    
                     lastPoint = translation
-                    break;
-                case .changed:
-                    if let _ = sender.view as? UIImageView {
-                        //SA
-                        let translation = sender.translation(in: sender.view)
-                        let diffX = lastPoint.x - translation.x
-                        let diffY = lastPoint.y - translation.y
-    
-    
-                        lastPoint = translation
-    
-                        pinViewFram.origin.x = pinViewFram.origin.x - diffX
-                        pinViewFram.origin.y = pinViewFram.origin.y - diffY
-    
-                        sender.view?.frame = pinViewFram
+                    
+                    pinViewFram.origin.x = pinViewFram.origin.x - diffX
+                    pinViewFram.origin.y = pinViewFram.origin.y - diffY
+                    
+                    sender.view?.frame = pinViewFram
+                }
+                break;
+            case .ended:
+                if let viewDrag = sender.view as? UIImageView {
+                    print(viewDrag.frame.origin.x)
+                    let xPos = (viewDrag.frame.origin.x + viewDrag.frame.width)
+                    let yPos = (viewDrag.frame.origin.y + viewDrag.frame.height)
+                    
+                    UIView.animate(withDuration: 0.3) {
+                        viewDrag.transform = CGAffineTransform.identity
                     }
-                    break;
-                case .ended:
-                    if let viewDrag = sender.view as? UIImageView {
-                        print(viewDrag.frame.origin.x)
-                        let xPos = (viewDrag.frame.origin.x + viewDrag.frame.width)
-                        let yPos = (viewDrag.frame.origin.y + viewDrag.frame.height)
-    
+                    
+                    if xPos >= UIScreen.main.bounds.width {
                         UIView.animate(withDuration: 0.3) {
-                            viewDrag.transform = CGAffineTransform.identity
+                            viewDrag.frame.origin.x = (UIScreen.main.bounds.width - viewDrag.frame.width - 10.0)
+                            self.pinViewFram.origin.x = (UIScreen.main.bounds.width - viewDrag.frame.width - 10.0)
                         }
-    
-                        if xPos >= UIScreen.main.bounds.width {
-                            UIView.animate(withDuration: 0.3) {
-                                viewDrag.frame.origin.x = (UIScreen.main.bounds.width - viewDrag.frame.width - 10.0)
-                                self.pinViewFram.origin.x = (UIScreen.main.bounds.width - viewDrag.frame.width - 10.0)
-                            }
-                        } else if(viewDrag.frame.origin.x <= 0) {
-                            UIView.animate(withDuration: 0.3) {
-                                viewDrag.frame.origin.x = 10.0
-                                self.pinViewFram.origin.x = 10.0
-                            }
+                    } else if(viewDrag.frame.origin.x <= 0) {
+                        UIView.animate(withDuration: 0.3) {
+                            viewDrag.frame.origin.x = 10.0
+                            self.pinViewFram.origin.x = 10.0
                         }
-    
-                        if yPos >= UIScreen.main.bounds.height {
-                            UIView.animate(withDuration: 0.3) {
-                                viewDrag.frame.origin.y = (UIScreen.main.bounds.height - viewDrag.frame.height - 10.0)
-                                self.pinViewFram.origin.y = (UIScreen.main.bounds.height - viewDrag.frame.height - 10.0)
-                            }
-                        } else if(viewDrag.frame.origin.y <= 0) {
-                            UIView.animate(withDuration: 0.3) {
-                                viewDrag.frame.origin.y = 10.0
-                                self.pinViewFram.origin.y = 10.0
-                            }
-                        }
-                        viewDrag.layoutIfNeeded()
-                        viewDrag.setNeedsLayout()
-                        viewDrag.setNeedsDisplay()
                     }
-                    print("Ended..")
-                    break;
-                default:
-                    break;
-            }
-    
+                    
+                    if yPos >= UIScreen.main.bounds.height {
+                        UIView.animate(withDuration: 0.3) {
+                            viewDrag.frame.origin.y = (UIScreen.main.bounds.height - viewDrag.frame.height - 10.0)
+                            self.pinViewFram.origin.y = (UIScreen.main.bounds.height - viewDrag.frame.height - 10.0)
+                        }
+                    } else if(viewDrag.frame.origin.y <= 80) {
+                        UIView.animate(withDuration: 0.3) {
+                            viewDrag.frame.origin.y = 80.0
+                            self.pinViewFram.origin.y = 80.0
+                        }
+                    }
+                    viewDrag.layoutIfNeeded()
+                    viewDrag.setNeedsLayout()
+                    viewDrag.setNeedsDisplay()
+                }
+                print("Ended..")
+                break;
+            default:
+                break;
         }
+        
+    }
+    
+    var heightOfView : CGFloat = 175
+    var lastPoint1 : CGFloat = 0
+    @objc func draggedLiveNewsView(_ sender:UIPanGestureRecognizer) {
+        
+        switch sender.state {
+            case .began:
+                let c = sender.location(in: sender.view).y
+//                location(in view: UIView?) -> CGPoint
+                lastPoint1 = sender.location(in: sender.view).y //sender.view?.frame.origin.y as! CGFloat
+                break;
+            case .changed:
+                if let viewDrag = sender.view as? LiveNewsPopUpView {
+                    //SA
+                    let c = sender.location(in: sender.view).y
+                    let translation = sender.view?.frame.origin
+//                    let diffX = lastPoint1.x - translation.x
+                    let diffY = lastPoint1 + c
+                  
+                    viewLiveNewsPopupHeightConstraint.constant = viewLiveNewsPopupHeightConstraint.constant - diffY
+                   // viewDrag.layoutIfNeeded()
+                    lastPoint1 = c
+                   // sender.view?.frame = pinViewFram
+                }
+                break;
+            case .ended:
+                if let viewDrag = sender.view as? LiveNewsPopUpView {
+//                    print(viewDrag.frame.origin.x)
+//                    let xPos = (viewDrag.frame.origin.x + viewDrag.frame.width)
+//                    let yPos = (viewDrag.frame.origin.y + viewDrag.frame.height)
+//
+//                    UIView.animate(withDuration: 0.3) {
+//                        viewDrag.transform = CGAffineTransform.identity
+//                    }
+//
+//                    if xPos >= UIScreen.main.bounds.width {
+//                        UIView.animate(withDuration: 0.3) {
+//                            viewDrag.frame.origin.x = (UIScreen.main.bounds.width - viewDrag.frame.width - 10.0)
+//                            self.pinViewFram.origin.x = (UIScreen.main.bounds.width - viewDrag.frame.width - 10.0)
+//                        }
+//                    } else if(viewDrag.frame.origin.x <= 0) {
+//                        UIView.animate(withDuration: 0.3) {
+//                            viewDrag.frame.origin.x = 10.0
+//                            self.pinViewFram.origin.x = 10.0
+//                        }
+//                    }
+//
+//                    if yPos >= UIScreen.main.bounds.height {
+//                        UIView.animate(withDuration: 0.3) {
+//                            viewDrag.frame.origin.y = (UIScreen.main.bounds.height - viewDrag.frame.height - 10.0)
+//                            self.pinViewFram.origin.y = (UIScreen.main.bounds.height - viewDrag.frame.height - 10.0)
+//                        }
+//                    } else if(viewDrag.frame.origin.y <= 80) {
+//                        UIView.animate(withDuration: 0.3) {
+//                            viewDrag.frame.origin.y = 80.0
+//                            self.pinViewFram.origin.y = 80.0
+//                        }
+//                    }
+                    viewDrag.layoutIfNeeded()
+                    viewDrag.setNeedsLayout()
+                    viewDrag.setNeedsDisplay()
+                }
+                print("Ended..")
+                break;
+            default:
+                break;
+        }
+    }
+    
+    
     //    if let pinScoreView = PinScoreView().loadNib() as? PinScoreView {
     //        APPDELEGATE.window?.addSubview(pinScoreView)
     //        pinScoreView.backgroundColor = .clear
@@ -174,13 +290,13 @@ class HomeVC: BaseViewController {
     //        pinViewFram = CGRect(x: 0, y: (APPDELEGATE.window!.bounds.height / 2 - 40), width: 150, height: 150)
     //        pinScoreView.frame = pinViewFram
     //    }
-
-        func insideDraggableArea(point : CGPoint, viewDrag: UIView) -> Bool {
-            //print(viewDrag.frame.origin.x + viewDrag.frame.width)
-            return ((point.x) > 0 && (viewDrag.frame.origin.x + viewDrag.frame.width) < UIScreen.main.bounds.width) &&
-                (point.y > 0 && point.y < UIScreen.main.bounds.height)
-        }
-
+    
+    func insideDraggableArea(point : CGPoint, viewDrag: UIView) -> Bool {
+        //print(viewDrag.frame.origin.x + viewDrag.frame.width)
+        return ((point.x) > 0 && (viewDrag.frame.origin.x + viewDrag.frame.width) < UIScreen.main.bounds.width) &&
+            (point.y > 0 && point.y < UIScreen.main.bounds.height)
+    }
+    
     
     
 }
@@ -256,7 +372,7 @@ class JSONReaderManager
                                   print(error.localizedDescription)
                               }
                    let jsonObj = try JSON(data: data)
-                   let TabValues = jsonObj["Data1"]["Dashboard"][_insideNodeValue]
+                   let TabValues = jsonObj["Data1"]["Dashboard"][_insideNodeValue] // print(jsonObj["Data1"]["Dashboard"].dictionary?.keys)
                    let allvalues = convertToDictionary(text: TabValues.stringValue)!
                    let requestDataDict:NSDictionary = allvalues as NSDictionary
                    let newDict =  ((requestDataDict.value(forKey: "Dashboard") as! NSArray)[0] as! NSDictionary).value(forKey: "Data") as! NSArray

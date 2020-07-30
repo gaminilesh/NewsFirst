@@ -17,13 +17,13 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vL-mA-W2i">
-                        <rect key="frame" x="5" y="2" width="139" height="37"/>
+                        <rect key="frame" x="8" y="2" width="133" height="37"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5u4-9U-qfg">
-                        <rect key="frame" x="5" y="39" width="139" height="2"/>
+                        <rect key="frame" x="8" y="39" width="133" height="2"/>
                         <color key="backgroundColor" red="0.67843137249999996" green="0.0" blue="0.098039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="2" id="d7w-Er-thq"/>
@@ -32,12 +32,12 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="8vL-mA-W2i" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="SDr-ZK-0AE"/>
-                <constraint firstAttribute="trailing" secondItem="5u4-9U-qfg" secondAttribute="trailing" constant="5" id="Sgq-gS-oUq"/>
-                <constraint firstItem="5u4-9U-qfg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="f50-cu-4Ne"/>
+                <constraint firstItem="8vL-mA-W2i" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="SDr-ZK-0AE"/>
+                <constraint firstAttribute="trailing" secondItem="5u4-9U-qfg" secondAttribute="trailing" constant="8" id="Sgq-gS-oUq"/>
+                <constraint firstItem="5u4-9U-qfg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="f50-cu-4Ne"/>
                 <constraint firstItem="8vL-mA-W2i" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="fak-Re-O46"/>
                 <constraint firstAttribute="bottom" secondItem="8vL-mA-W2i" secondAttribute="bottom" constant="2" id="heU-mD-7di"/>
-                <constraint firstAttribute="trailing" secondItem="8vL-mA-W2i" secondAttribute="trailing" constant="5" id="vde-Ve-PMv"/>
+                <constraint firstAttribute="trailing" secondItem="8vL-mA-W2i" secondAttribute="trailing" constant="8" id="vde-Ve-PMv"/>
                 <constraint firstAttribute="bottom" secondItem="5u4-9U-qfg" secondAttribute="bottom" id="vqY-At-WCu"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>

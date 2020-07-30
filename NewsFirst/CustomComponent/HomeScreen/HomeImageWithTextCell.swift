@@ -36,6 +36,7 @@ class HomeImageWithTextCell: UITableViewCell {
         imgvPhoto.layer.cornerRadius = 8
         imgvPhoto.clipsToBounds = true
         lblDescription.font = AppFont.Callout
+        lblDescription.textColor = .black
     }
     
     func setData() {

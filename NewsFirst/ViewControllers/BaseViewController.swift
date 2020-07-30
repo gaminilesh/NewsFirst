@@ -14,7 +14,7 @@ class BaseViewController:UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.view.backgroundColor = appTheamColor.black
+        self.view.backgroundColor = appTheamColor.white
     }
     struct NavigationStyles {
         private var _barTintColor: UIColor = appTheamColor.AppNavigation
