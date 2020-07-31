@@ -30,7 +30,8 @@ class SubHomeVC: BaseViewController {
     var newsList = [News]()
     
     var newsDetail: NewsDetail?
-    
+    var jsonFileName: String = "0"
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
@@ -46,7 +47,7 @@ class SubHomeVC: BaseViewController {
         
         registeNib()
         
-        if let path = Bundle.main.path(forResource: "1", ofType: "json") {
+        if let path = Bundle.main.path(forResource: jsonFileName, ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)

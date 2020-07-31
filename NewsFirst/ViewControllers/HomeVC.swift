@@ -20,7 +20,7 @@ class HomeVC: BaseViewController {
     
     @IBOutlet weak var tblList: UITableView!
     @IBOutlet weak var bottomView: UIView!
-    var reppleView = RippleView.instanceFromNib()
+//    var reppleView = RippleView.instanceFromNib()
     let bottomTabView = BottomCustomTab.instanceFromNib()
     
     @IBOutlet weak var viewBrekingNews: BreakingNewsView!
@@ -34,32 +34,34 @@ class HomeVC: BaseViewController {
         // Do any additional setup after loading the view.
         
         tblList.tableFooterView = UIView()
-        
+        self.viewBrekingNewsHeightConstraint.constant = 80
+
         registeNib()
-        let list = JSONReaderManager.sharedInstance.ReadJSON(_insideNodeValue: "Business")
-        if list.count > 0 {
-            for obj in list {
-                print(obj)
-                if let json = obj as? [String:Any] {
-                    newsList.append(News(dict: json))
-                }
-            }
-            tblList.reloadData()
-        }
+        self.passJsonFileName(fileName: "Data")
+//        let list = JSONReaderManager.sharedInstance.ReadJSON(_insideNodeValue: "Business")
+//        if list.count > 0 {
+//            for obj in list {
+//                print(obj)
+//                if let json = obj as? [String:Any] {
+//                    newsList.append(News(dict: json))
+//                }
+//            }
+//            tblList.reloadData()
+//        }
+//
         
+//        self.view.addSubview(reppleView)
         
-        self.view.addSubview(reppleView)
-        
-        let img = UIImageView()
-        img.tag = 120
-        pinViewFram = CGRect(x: 100, y: 400, width: 100, height: 100)
-        img.frame = pinViewFram
-        img.backgroundColor = .red
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.draggedView(_:)))
-        img.isUserInteractionEnabled = true
-        img.addGestureRecognizer(panGesture)
-        
-        self.view.addSubview(img)
+//        let img = UIImageView()
+//        img.tag = 120
+//        pinViewFram = CGRect(x: 100, y: 400, width: 100, height: 100)
+//        img.frame = pinViewFram
+//        img.backgroundColor = .red
+//        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.draggedView(_:)))
+//        img.isUserInteractionEnabled = true
+//        img.addGestureRecognizer(panGesture)
+//        
+//        self.view.addSubview(img)
         
 //        let panGesture1 = UIPanGestureRecognizer(target: self, action: #selector(self.draggedLiveNewsView(_:)))
 //        viewLiveNewsPopup.isUserInteractionEnabled = true
@@ -81,29 +83,41 @@ class HomeVC: BaseViewController {
         //        bottomTabView.frame = CGRect(x: 0, y: 200, width: UIScreen.main.bounds.size.width, height: 40)
         //        self.view.addSubview(bottomTabView)
         //bottomTabView.clvList.reloadData()
+
+        bottomTabView.selectedActionListener = {[weak self] (content) in
+            DispatchQueue.main.async() {
+                // your UI update code
+                if let weakSelf = self {
+                    weakSelf.passJsonFileName(fileName: content.fileName)
+                }
+            }
+        }
+
+
+        
         bottomView.layoutIfNeeded()
         setupNavigation()
         
         // reppleView.frame = CGRect(x: (UIScreen.main.bounds.size.width - 85), y: (UIScreen.main.bounds.size.height - 125), width: 50, height: 50)
         
-        
-        reppleView.translatesAutoresizingMaskIntoConstraints = false
-        
-        //        reppleView.addConstraint(NSLayoutConstraint(item: bottomTabView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50))
-        //         reppleView.addConstraint(NSLayoutConstraint(item: bottomTabView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50))
-        self.view.addConstraint(NSLayoutConstraint(item: reppleView, attribute: .bottom, relatedBy: .equal, toItem: bottomView, attribute: .top, multiplier: 1, constant: -35))
-        
-        self.view.addConstraint(NSLayoutConstraint(item: reppleView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: -35))
-        reppleView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        reppleView.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        reppleView.showRippleEffecr = true
-        
-        reppleView.onRippleTap = { (sender) in
-            self.viewLiveNewsPopup.isHidden = false
-            self.reppleView.isHidden = true
-        }
-        
+//
+//        reppleView.translatesAutoresizingMaskIntoConstraints = false
+//
+//        //        reppleView.addConstraint(NSLayoutConstraint(item: bottomTabView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50))
+//        //         reppleView.addConstraint(NSLayoutConstraint(item: bottomTabView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50))
+//        self.view.addConstraint(NSLayoutConstraint(item: reppleView, attribute: .bottom, relatedBy: .equal, toItem: bottomView, attribute: .top, multiplier: 1, constant: -35))
+//
+//        self.view.addConstraint(NSLayoutConstraint(item: reppleView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: -35))
+//        reppleView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+//        reppleView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+//
+//        reppleView.showRippleEffecr = true
+//
+//        reppleView.onRippleTap = { (sender) in
+//            self.viewLiveNewsPopup.isHidden = false
+//            self.reppleView.isHidden = true
+//        }
+//
         viewBrekingNews.onButtonCloseTap = { (sender) in
             self.viewBrekingNewsHeightConstraint.constant = 0
             UIView.animate(withDuration: 0.9, animations: {
@@ -112,7 +126,19 @@ class HomeVC: BaseViewController {
         }
         viewLiveNewsPopup.newsList = [newsList[1], newsList[2]] 
     }
-    
+    func passJsonFileName(fileName:String)  {
+        newsList.removeAll()
+        let list = JSONReaderManager.sharedInstance.ReadJSON(_insideNodeValue: fileName)
+        if list.count > 0 {
+            for obj in list {
+                print(obj)
+                if let json = obj as? [String:Any] {
+                    newsList.append(News(dict: json))
+                }
+            }
+            tblList.reloadData()
+        }
+    }
     //TODO:- Custome Navigation Render.
     func setupNavigation()  {
         extendedLayoutIncludesOpaqueBars = true
@@ -126,7 +152,7 @@ class HomeVC: BaseViewController {
         let menu = SideMenuNavigationController(rootViewController: sideMenu)
         menu.navigationBar.isHidden = true
         menu.leftSide = LLanguage.isRTL == true ? false : true
-        menu.menuWidth = 200
+        menu.menuWidth = 260
         menu.statusBarEndAlpha = 0
         menu.presentationStyle = .menuSlideIn
         menu.presentationStyle.presentingEndAlpha = CGFloat(0.6)
@@ -344,8 +370,14 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let news = newsList[indexPath.row]
         print("Selected Cell : \(indexPath.row)")
-        
+        if news._type == NewsType.List.rawValue {
+            let controller = SubHomeVC.getInstance()
+            controller.jsonFileName = "\(indexPath.row > 3 ? 1 : indexPath.row)"
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+
     }
     
 }
