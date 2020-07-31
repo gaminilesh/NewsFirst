@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //MARK:- Set Initial ViewController
     func setInitialViewController() {
         isDark = AppUserDefaults.isDarkMode
-        let controller = HomeVC.getInstance()
+        let controller = SubHomeVC.getInstance()
         let navigation = UINavigationController(rootViewController: controller)
         window?.rootViewController = navigation
 

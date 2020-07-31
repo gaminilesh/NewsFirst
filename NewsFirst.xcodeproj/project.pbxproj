@@ -77,6 +77,12 @@
 		7D6D2DC324D3C50E003524CC /* SubHomeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D6D2DC224D3C50E003524CC /* SubHomeHeaderView.xib */; };
 		7D6D2DC624D3C92A003524CC /* SubHomeDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D2DC424D3C92A003524CC /* SubHomeDetailCell.swift */; };
 		7D6D2DC724D3C92A003524CC /* SubHomeDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D6D2DC524D3C92A003524CC /* SubHomeDetailCell.xib */; };
+		7D7883CB24D46FE600F469E8 /* SubHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7883CA24D46FE600F469E8 /* SubHomeVC.swift */; };
+		7D7883D124D47EC000F469E8 /* 0.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D7883CD24D47EC000F469E8 /* 0.json */; };
+		7D7883D224D47EC000F469E8 /* 1.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D7883CE24D47EC000F469E8 /* 1.json */; };
+		7D7883D324D47EC000F469E8 /* 2.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D7883CF24D47EC000F469E8 /* 2.json */; };
+		7D7883D424D47EC000F469E8 /* 3.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D7883D024D47EC000F469E8 /* 3.json */; };
+		7D7883D624D480F000F469E8 /* NewsDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7883D524D480F000F469E8 /* NewsDetail.swift */; };
 		7D91B52B24CF295D00E4F47D /* HomeImageWithTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D91B52924CF295D00E4F47D /* HomeImageWithTextCell.swift */; };
 		7D91B52C24CF295D00E4F47D /* HomeImageWithTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D91B52A24CF295D00E4F47D /* HomeImageWithTextCell.xib */; };
 		7D91B52F24CF2E4E00E4F47D /* HomePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D91B52D24CF2E4E00E4F47D /* HomePhotoCell.swift */; };
@@ -162,6 +168,12 @@
 		7D6D2DC224D3C50E003524CC /* SubHomeHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubHomeHeaderView.xib; sourceTree = "<group>"; };
 		7D6D2DC424D3C92A003524CC /* SubHomeDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubHomeDetailCell.swift; sourceTree = "<group>"; };
 		7D6D2DC524D3C92A003524CC /* SubHomeDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubHomeDetailCell.xib; sourceTree = "<group>"; };
+		7D7883CA24D46FE600F469E8 /* SubHomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubHomeVC.swift; sourceTree = "<group>"; };
+		7D7883CD24D47EC000F469E8 /* 0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 0.json; sourceTree = "<group>"; };
+		7D7883CE24D47EC000F469E8 /* 1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 1.json; sourceTree = "<group>"; };
+		7D7883CF24D47EC000F469E8 /* 2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2.json; sourceTree = "<group>"; };
+		7D7883D024D47EC000F469E8 /* 3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 3.json; sourceTree = "<group>"; };
+		7D7883D524D480F000F469E8 /* NewsDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetail.swift; sourceTree = "<group>"; };
 		7D91B52924CF295D00E4F47D /* HomeImageWithTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeImageWithTextCell.swift; sourceTree = "<group>"; };
 		7D91B52A24CF295D00E4F47D /* HomeImageWithTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeImageWithTextCell.xib; sourceTree = "<group>"; };
 		7D91B52D24CF2E4E00E4F47D /* HomePhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePhotoCell.swift; sourceTree = "<group>"; };
@@ -218,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				04FEF5DE24CD2687004CB475 /* HomeVC.swift */,
+				7D7883CA24D46FE600F469E8 /* SubHomeVC.swift */,
 				04F752CC24D07D64005B34D8 /* BaseViewController.swift */,
 				04945AF624CFE089009E82D1 /* NotificationSettingVC.swift */,
 				04945AEB24CFE089009E82D1 /* SavedStories.json */,
@@ -376,6 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				7D26727F24CF43920036BF75 /* newsfirst-Backupexport.json */,
+				7D7883CC24D47EC000F469E8 /* DetailsJson */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -384,6 +398,7 @@
 			isa = PBXGroup;
 			children = (
 				7D26728224CF46A50036BF75 /* News.swift */,
+				7D7883D524D480F000F469E8 /* NewsDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -401,6 +416,17 @@
 				7D6D2DC224D3C50E003524CC /* SubHomeHeaderView.xib */,
 			);
 			path = SubHomeScreen;
+			sourceTree = "<group>";
+		};
+		7D7883CC24D47EC000F469E8 /* DetailsJson */ = {
+			isa = PBXGroup;
+			children = (
+				7D7883CD24D47EC000F469E8 /* 0.json */,
+				7D7883CE24D47EC000F469E8 /* 1.json */,
+				7D7883CF24D47EC000F469E8 /* 2.json */,
+				7D7883D024D47EC000F469E8 /* 3.json */,
+			);
+			path = DetailsJson;
 			sourceTree = "<group>";
 		};
 		7D91B52724CF287100E4F47D /* CustomComponent */ = {
@@ -518,17 +544,21 @@
 				7D26728024CF43920036BF75 /* newsfirst-Backupexport.json in Resources */,
 				7D6D2DC324D3C50E003524CC /* SubHomeHeaderView.xib in Resources */,
 				045E5F9624CD2E8D004F4FAA /* splashgif.gif in Resources */,
+				7D7883D324D47EC000F469E8 /* 2.json in Resources */,
 				04FEF5E724CD2688004CB475 /* LaunchScreen.storyboard in Resources */,
 				045E5FDD24CD3BB9004F4FAA /* Dashboard.storyboard in Resources */,
 				04945AF724CFE089009E82D1 /* SavedStories.json in Resources */,
 				046594DF24CE78F500E8CD62 /* tommy_regular.ttf in Resources */,
 				7D3FC72924CFCB1E0075509F /* HomeTitleCell.xib in Resources */,
+				7D7883D124D47EC000F469E8 /* 0.json in Resources */,
 				7D91B53424CF32A800E4F47D /* CollectionViewPhotoCell.xib in Resources */,
+				7D7883D424D47EC000F469E8 /* 3.json in Resources */,
 				7DA28A1924D0938400CB7854 /* RippleView.xib in Resources */,
 				7D91B53024CF2E4E00E4F47D /* HomePhotoCell.xib in Resources */,
 				045E5F9724CD2E8D004F4FAA /* twisting_circle.gif in Resources */,
 				7D6D2DC724D3C92A003524CC /* SubHomeDetailCell.xib in Resources */,
 				7D6D2DBB24D3C19E003524CC /* SubHomeBulletCell.xib in Resources */,
+				7D7883D224D47EC000F469E8 /* 1.json in Resources */,
 				04BD5C5B24D12A71004218FF /* BottomCustomTab.xib in Resources */,
 				046594E324CE793E00E8CD62 /* SideMenu.storyboard in Resources */,
 				04BD5C5E24D12A71004218FF /* BottomCustomTabCell.xib in Resources */,
@@ -630,11 +660,13 @@
 				045E5FC524CD35F9004F4FAA /* NSLayoutConstraint+Extended.swift in Sources */,
 				7D54478F24D2611D00F27A8F /* LiveNewsPopUpView.swift in Sources */,
 				045E5FD524CD3729004F4FAA /* Languages.swift in Sources */,
+				7D7883D624D480F000F469E8 /* NewsDetail.swift in Sources */,
 				04945B0224CFEBC9009E82D1 /* UIImage+Gif.swift in Sources */,
 				04BD5C5524D1209E004218FF /* NavigationTitleView.swift in Sources */,
 				045E5FC724CD35F9004F4FAA /* String+Extended.swift in Sources */,
 				045E5FD124CD3699004F4FAA /* AppConfigure.swift in Sources */,
 				045E5FC924CD35F9004F4FAA /* JsonParsing.swift in Sources */,
+				7D7883CB24D46FE600F469E8 /* SubHomeVC.swift in Sources */,
 				7D3FC72824CFCB1E0075509F /* HomeTitleCell.swift in Sources */,
 				04945AF924CFE089009E82D1 /* LeftMenuCell.swift in Sources */,
 				7D5020DE24D1E2BD00C7936D /* BreakingNewsView.swift in Sources */,

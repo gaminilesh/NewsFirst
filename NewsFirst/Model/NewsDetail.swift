@@ -1,30 +1,17 @@
 //
-//  News.swift
+//  NewsDetail.swift
 //  NewsFirst
 //
-//  Created by Ankit Sojitra on 27/07/20.
+//  Created by Ankit Sojitra on 31/07/20.
 //  Copyright © 2020 iOS Dev. All rights reserved.
 //
 
 import UIKit
 
-enum NewsType: String {
-    case Title = "Title"
-    case List = "List"
-    case Advertise = "Advertise"
-    case Photos = "Photos"
-    case Videos = "Videos"
-    case Text = "Text"
-    case Details = "Details"
-    case BulletArrow = "BulletArrow"
-    case BulletNumber = "BulletNumber"
-    case Twitter = "Twitter"
-    case Instagram = "Instagram"
-}
-class News: NSObject {
+class NewsDetail: NSObject {
     var dateTime : String?
     var _description : String?
-    var id : Int?
+    var storyby : String?
     var imageURl : String?
     var title : String?
     var _type: String! = ""
@@ -40,8 +27,8 @@ class News: NSObject {
         if let str = dict["Description"] as? String {
             _description = str
         }
-        if let str = dict["Id"] as? Int {
-            id = str
+        if let str = dict["Storyby"] as? String {
+            storyby = str
         }
         if let str = dict["ImageUrl"] as? String {
             imageURl = str
@@ -52,7 +39,7 @@ class News: NSObject {
         if let str = dict["Type"] as? String {
             _type = str
         }
-        if let list = dict["NewsList"] as? [Any], list.count > 0  {
+        if let list = dict["DetailList"] as? [Any], list.count > 0  {
             newsList = [News]()
             for obj in list {
                 if let json = obj as? [String:Any] {
@@ -61,5 +48,5 @@ class News: NSObject {
             }
         }
     }
-    
 }
+

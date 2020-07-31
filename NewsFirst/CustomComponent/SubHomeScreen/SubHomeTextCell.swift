@@ -12,6 +12,11 @@ class SubHomeTextCell: UITableViewCell {
 
     @IBOutlet weak var lblText: UILabel!
     
+    var objNews : News? {
+        didSet {
+            setData()
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,4 +28,10 @@ class SubHomeTextCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setData() {
+        guard let obj = objNews else {
+            return
+        }
+        lblText.text = obj._description
+    }
 }

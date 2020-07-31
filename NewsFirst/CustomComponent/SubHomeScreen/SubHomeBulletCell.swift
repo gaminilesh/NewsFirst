@@ -13,6 +13,13 @@ class SubHomeBulletCell: UITableViewCell {
     @IBOutlet weak var lblText: UILabel!
     @IBOutlet weak var btnBullet: UIButton!
     
+    
+    var objNews : News? {
+        didSet {
+            setData()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,6 +29,13 @@ class SubHomeBulletCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
+    }
+    
+    func setData() {
+        guard let obj = objNews else {
+            return
+        }
+        lblText.text = obj._description
     }
     
 }

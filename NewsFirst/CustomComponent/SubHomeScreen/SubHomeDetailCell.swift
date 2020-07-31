@@ -15,6 +15,12 @@ class SubHomeDetailCell: UITableViewCell {
     @IBOutlet weak var lbldateTime: UILabel!
     @IBOutlet weak var imgvPhoto: UIImageView!
     
+    var objNews : NewsDetail? {
+        didSet {
+            setData()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,4 +32,15 @@ class SubHomeDetailCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setData() {
+        guard let obj = objNews else {
+            return
+        }
+        lblTitle.text = obj._description
+        lblAuthor.text = obj.storyby
+        lbldateTime.text = obj.dateTime
+        if let str = obj.imageURl, str != "" {
+            imgvPhoto.kf.setImage(with: URL(string: str)!)
+        }
+    }
 }
