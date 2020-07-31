@@ -17,6 +17,9 @@ class CollectionViewPhotoCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        btnShare.setImage(#imageLiteral(resourceName: "shareWhite"), for: .normal)
+        btnTag.setImage(#imageLiteral(resourceName: "saveStoryWhite"), for: .normal)
+
     }
     
     // MARK:- Button Action

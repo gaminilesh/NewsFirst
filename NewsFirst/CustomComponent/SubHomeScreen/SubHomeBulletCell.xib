@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KqK-8k-bZ5">
-                        <rect key="frame" x="10" y="5" width="300" height="14.5"/>
+                        <rect key="frame" x="15" y="5" width="290" height="14.5"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPk-3n-iy3">
                                 <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -31,7 +32,7 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMu-cl-vxP">
-                                <rect key="frame" x="20" y="0.0" width="280" height="14.5"/>
+                                <rect key="frame" x="20" y="0.0" width="270" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -49,10 +50,10 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="KqK-8k-bZ5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="0lQ-Xd-9cl"/>
+                    <constraint firstItem="KqK-8k-bZ5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="0lQ-Xd-9cl"/>
                     <constraint firstItem="KqK-8k-bZ5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Juk-yl-tnk"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="KqK-8k-bZ5" secondAttribute="bottom" constant="5" id="bza-PC-OJL"/>
-                    <constraint firstAttribute="trailing" secondItem="KqK-8k-bZ5" secondAttribute="trailing" constant="10" id="dDH-W5-HDa"/>
+                    <constraint firstAttribute="trailing" secondItem="KqK-8k-bZ5" secondAttribute="trailing" constant="15" id="dDH-W5-HDa"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

@@ -35,8 +35,14 @@ class HomeImageWithTextCell: UITableViewCell {
     func setUI() {  // Set font and Color
         imgvPhoto.layer.cornerRadius = 8
         imgvPhoto.clipsToBounds = true
-        lblDescription.font = AppFont.Callout
+        
+        lblDescription.text = ""//obj.dateTime
+        lblDescription.font = AppFont.Body
         lblDescription.textColor = .black
+        
+        lblTime.text = ""//obj.dateTime
+        lblTime.font = AppFont.Medium_caption1
+        lblTime.textColor = appTheamColor.grey
     }
     
     func setData() {
@@ -44,6 +50,7 @@ class HomeImageWithTextCell: UITableViewCell {
             return
         }
         lblDescription.text = obj.title
+        lblTime.text = "5 Minutes ago"//obj.dateTime
         if let str = obj.imageURl, str != "" {
             imgvPhoto.kf.setImage(with: URL(string: str)!)
         }

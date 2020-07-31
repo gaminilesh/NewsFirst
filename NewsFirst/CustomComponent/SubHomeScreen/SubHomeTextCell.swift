@@ -20,6 +20,7 @@ class SubHomeTextCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        setUI()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -27,7 +28,12 @@ class SubHomeTextCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+    func setUI() {  // Set font and Color
+        lblText.text = ""//obj.dateTime
+        lblText.font = AppFont.Callout
+        lblText.textColor = appTheamColor.black
+    }
+
     func setData() {
         guard let obj = objNews else {
             return

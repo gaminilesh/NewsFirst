@@ -15,8 +15,8 @@ class LeftMenuCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        lblName.font = AppFont.Callout
-        lblName.textColor = AppColor().black
+        lblName.font = AppFont.Subhead
+        lblName.textColor = appTheamColor.black
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -24,6 +24,8 @@ class SubHomeDetailCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        setUI()
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -31,14 +33,29 @@ class SubHomeDetailCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+    func setUI() {  // Set font and Color
+        lblTitle.text = ""//obj.dateTime
+        lblTitle.font = AppFont.Bold_Title3
+        lblTitle.textColor = appTheamColor.black
+        
+        lblAuthor.text = ""//obj.dateTime
+        lblAuthor.font = AppFont.caption1
+        lblAuthor.textColor = appTheamColor.grey
+
+        
+        lbldateTime.text = ""//obj.dateTime
+        lbldateTime.font = AppFont.caption1
+        lbldateTime.textColor = appTheamColor.grey
+
+    }
+
     func setData() {
         guard let obj = objNews else {
             return
         }
-        lblTitle.text = obj._description
-        lblAuthor.text = obj.storyby
-        lbldateTime.text = obj.dateTime
+        lblTitle.text = obj.title
+        lblAuthor.text = "Story by: \(obj.storyby ?? "")"
+        lbldateTime.text = obj.dateTime?.date(format: "dd-MM-yyyy HH:mm:ss")?.dateString(format: "dd MMM yyyy | HH:mm:ss a")
         if let str = obj.imageURl, str != "" {
             imgvPhoto.kf.setImage(with: URL(string: str)!)
         }

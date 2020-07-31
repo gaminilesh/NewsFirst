@@ -34,8 +34,14 @@ class HomeTitleCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func setUI() {  // Set font and Color
-        lblTitle.text = "Photos"
+        lblTitle.text = ""
         lblTitle.font = AppFont.Bold_Title3
+        lblTitle.textColor = appTheamColor.white
+        
+        lblTime.text = ""//obj.dateTime
+        lblTime.font = AppFont.Bold_Footnote
+        lblTime.textColor = appTheamColor.white
+
     }
     
    
@@ -44,6 +50,7 @@ class HomeTitleCell: UITableViewCell {
             return
         }
         lblTitle.text = obj.title
+        lblTime.text = "5 Minutes ago"//obj.dateTime
         if let str = obj.imageURl, str != "" {
             imgvPhoto.kf.setImage(with: URL(string: str)!)
         }

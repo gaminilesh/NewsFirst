@@ -40,10 +40,13 @@ class BreakingNewsView: UIView {
     }
     
     func setUI() {
-        lblTitle.font = AppFont.Bold_Title2
+        lblTitle.font = AppFont.Bold_Body
         lblTitle.textColor = appTheamColor.white
         
-        lblDescription.font = AppFont.Medium_Callout
+        lblTime.font = AppFont.caption2
+        lblTime.textColor = appTheamColor.white
+
+        lblDescription.font = AppFont.Medium_Subhead
         lblDescription.textColor = appTheamColor.white
     }
     

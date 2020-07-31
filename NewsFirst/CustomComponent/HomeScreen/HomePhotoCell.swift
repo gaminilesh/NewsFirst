@@ -15,6 +15,7 @@ enum PhotoCellType : String {
 
 class HomePhotoCell: UITableViewCell {
     
+    @IBOutlet weak var subView: UIView!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var lblCount: UILabel!
@@ -44,13 +45,22 @@ class HomePhotoCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func setUI() {  // Set font and Color
+        
+        subView.backgroundColor = appTheamColor.greyLight
+        
         lblCount.layer.cornerRadius = lblCount.frame.size.height / 2
         lblCount.clipsToBounds = true
-        
+        lblCount.backgroundColor = appTheamColor.grey.withAlphaComponent(0.3)
+        lblCount.font = AppFont.Body
+        lblCount.textColor = appTheamColor.grey
+
         lblTitle.text = "Photos"
         lblTitle.font = AppFont.Bold_Title3
+        lblTitle.textColor = appTheamColor.grey
+
         lblDescription.font = AppFont.Bold_Callout
-        
+        lblDescription.textColor = appTheamColor.black
+
         pageIndicater.currentPage = 0
         pageIndicater.numberOfPages = 10
         lblCount.text = "1/10"
