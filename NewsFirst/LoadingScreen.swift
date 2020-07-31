@@ -28,7 +28,7 @@ class LoadingScreen: UIViewController
         lblDate.text = Date().dateString(format: AppConfigure.dateFormatWithTime)
         lblDate.font = AppFont.Footnote
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             self.finishedLoading()
         }
     }
