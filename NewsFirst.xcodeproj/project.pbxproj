@@ -33,6 +33,7 @@
 		046594E024CE78F500E8CD62 /* tommy_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 046594DD24CE78F500E8CD62 /* tommy_bold.ttf */; };
 		046594E124CE78F500E8CD62 /* tommy_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 046594DE24CE78F500E8CD62 /* tommy_medium.ttf */; };
 		046594E324CE793E00E8CD62 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046594E224CE793E00E8CD62 /* SideMenu.storyboard */; };
+		047F142224D465CB00DED643 /* LoadingAdsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F142124D465CB00DED643 /* LoadingAdsScreen.swift */; };
 		04945AF724CFE089009E82D1 /* SavedStories.json in Resources */ = {isa = PBXBuildFile; fileRef = 04945AEB24CFE089009E82D1 /* SavedStories.json */; };
 		04945AF824CFE089009E82D1 /* LeftMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04945AED24CFE089009E82D1 /* LeftMenuVC.swift */; };
 		04945AF924CFE089009E82D1 /* LeftMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04945AEF24CFE089009E82D1 /* LeftMenuCell.swift */; };
@@ -68,7 +69,6 @@
 		7D5020E024D1E2CA00C7936D /* BreakingNewsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D5020DF24D1E2CA00C7936D /* BreakingNewsView.xib */; };
 		7D54478F24D2611D00F27A8F /* LiveNewsPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D54478E24D2611D00F27A8F /* LiveNewsPopUpView.swift */; };
 		7D54479124D2614C00F27A8F /* LiveNewsPopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D54479024D2614C00F27A8F /* LiveNewsPopUpView.xib */; };
-		7D6D2DB524D3B9DF003524CC /* SubHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D2DB424D3B9DF003524CC /* SubHomeVC.swift */; };
 		7D6D2DBA24D3C19E003524CC /* SubHomeBulletCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D2DB824D3C19E003524CC /* SubHomeBulletCell.swift */; };
 		7D6D2DBB24D3C19E003524CC /* SubHomeBulletCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D6D2DB924D3C19E003524CC /* SubHomeBulletCell.xib */; };
 		7D6D2DBE24D3C309003524CC /* SubHomeTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D2DBC24D3C309003524CC /* SubHomeTextCell.swift */; };
@@ -115,6 +115,7 @@
 		046594DD24CE78F500E8CD62 /* tommy_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tommy_bold.ttf; sourceTree = "<group>"; };
 		046594DE24CE78F500E8CD62 /* tommy_medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tommy_medium.ttf; sourceTree = "<group>"; };
 		046594E224CE793E00E8CD62 /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
+		047F142124D465CB00DED643 /* LoadingAdsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingAdsScreen.swift; sourceTree = "<group>"; };
 		04945AEB24CFE089009E82D1 /* SavedStories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SavedStories.json; sourceTree = "<group>"; };
 		04945AED24CFE089009E82D1 /* LeftMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuVC.swift; sourceTree = "<group>"; };
 		04945AEF24CFE089009E82D1 /* LeftMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuCell.swift; sourceTree = "<group>"; };
@@ -153,7 +154,6 @@
 		7D5020DF24D1E2CA00C7936D /* BreakingNewsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BreakingNewsView.xib; sourceTree = "<group>"; };
 		7D54478E24D2611D00F27A8F /* LiveNewsPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveNewsPopUpView.swift; sourceTree = "<group>"; };
 		7D54479024D2614C00F27A8F /* LiveNewsPopUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveNewsPopUpView.xib; sourceTree = "<group>"; };
-		7D6D2DB424D3B9DF003524CC /* SubHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubHomeVC.swift; sourceTree = "<group>"; };
 		7D6D2DB824D3C19E003524CC /* SubHomeBulletCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubHomeBulletCell.swift; sourceTree = "<group>"; };
 		7D6D2DB924D3C19E003524CC /* SubHomeBulletCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubHomeBulletCell.xib; sourceTree = "<group>"; };
 		7D6D2DBC24D3C309003524CC /* SubHomeTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubHomeTextCell.swift; sourceTree = "<group>"; };
@@ -218,7 +218,6 @@
 			isa = PBXGroup;
 			children = (
 				04FEF5DE24CD2687004CB475 /* HomeVC.swift */,
-				7D6D2DB424D3B9DF003524CC /* SubHomeVC.swift */,
 				04F752CC24D07D64005B34D8 /* BaseViewController.swift */,
 				04945AF624CFE089009E82D1 /* NotificationSettingVC.swift */,
 				04945AEB24CFE089009E82D1 /* SavedStories.json */,
@@ -311,6 +310,7 @@
 				04FEF5E024CD2687004CB475 /* Main.storyboard */,
 				04FEF5E324CD2688004CB475 /* Assets.xcassets */,
 				045E5F9124CD2D35004F4FAA /* LoadingScreen.swift */,
+				047F142124D465CB00DED643 /* LoadingAdsScreen.swift */,
 				045E5F9324CD2E74004F4FAA /* Support */,
 				04FEF5E524CD2688004CB475 /* LaunchScreen.storyboard */,
 				04FEF5E824CD2688004CB475 /* Info.plist */,
@@ -597,6 +597,7 @@
 				04945AF824CFE089009E82D1 /* LeftMenuVC.swift in Sources */,
 				04945AFD24CFE089009E82D1 /* HNotificationSettingCell.swift in Sources */,
 				045E5FC324CD35F9004F4FAA /* DocumentDirectory+Extended.swift in Sources */,
+				047F142224D465CB00DED643 /* LoadingAdsScreen.swift in Sources */,
 				7D91B52F24CF2E4E00E4F47D /* HomePhotoCell.swift in Sources */,
 				04FEF5DF24CD2687004CB475 /* HomeVC.swift in Sources */,
 				04F752CD24D07D64005B34D8 /* BaseViewController.swift in Sources */,
@@ -614,7 +615,6 @@
 				045E5FCD24CD3639004F4FAA /* DownloadSave.swift in Sources */,
 				7DA28A1724D0936700CB7854 /* RippleView.swift in Sources */,
 				045E5FCA24CD35F9004F4FAA /* View+Extended.swift in Sources */,
-				7D6D2DB524D3B9DF003524CC /* SubHomeVC.swift in Sources */,
 				04945AFE24CFE089009E82D1 /* TNotificationSettingCell.swift in Sources */,
 				045E5FC424CD35F9004F4FAA /* StackView+Extended.swift in Sources */,
 				045E5FC024CD35F9004F4FAA /* AppDelegate+Extended.swift in Sources */,

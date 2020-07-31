@@ -1,0 +1,53 @@
+{
+  "Detail": [
+    {
+      "Type": "Simple",
+      "Title": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+      "DateTime": "1-7-2020 1:30:00",
+      "Storyby": "Ashish Jain",
+      "ImageUrl": "https://testingbeta.in/assets/images/3.jpeg",
+      "DetailList": [
+        {
+          "Type": "Details",
+          "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "ImageUrl": "https://testingbeta.in/assets/images/3.jpeg"
+        },
+        {
+          "Type": "BulletArrow",
+          "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "ImageUrl": ""
+        },
+        {
+          "Type": "BulletArrow",
+          "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "ImageUrl": ""
+        },
+        {
+          "Type": "Text",
+          "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "ImageUrl": ""
+        },
+        {
+          "Type": "Text",
+          "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+          "ImageUrl": ""
+        },
+        {
+          "Type": "Image",
+          "Description": "",
+          "ImageUrl": "https://testingbeta.in/assets/images/new_img_11.jpeg"
+        },
+        {
+          "Type": "Text",
+          "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+          "ImageUrl": ""
+        },
+        {
+          "Type": "Advertise",
+          "Description": "jiomart",
+          "ImageUrl": "https://testingbeta.in/assets/images/ad_image_new_2.jpg"
+        }
+      ]
+    }
+  ]
+}

@@ -70,12 +70,17 @@ class BaseViewController:UIViewController {
     }
 
     func setNavigationBarSetup(isNavigationBarHiddne : Bool = false) {
-        self.navigationController?.navigationBar.isHidden = isNavigationBarHiddne
-        navigationController?.navigationBar.isTranslucent = false // If use true then show tranfer color from statusbar and navigationbar
-        //Remove Botton Show
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-
+//        self.navigationController?.navigationBar.isHidden = isNavigationBarHiddne
+//        navigationController?.navigationBar.isTranslucent = false // If use true then show tranfer color from statusbar and navigationbar
+//        //Remove Botton Show
+//        navigationController?.navigationBar.shadowImage = UIImage()
+//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//
+        self.navigationController?.navigationBar.setBackgroundImage(#imageLiteral(resourceName: "ssss"), for: .default) //UIImage.init(named: "ssss.png")
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = appTheamColor.greyLight
+        
         navigationController?.navigationBar.barTintColor = navigationStyles.barTintColor // BG Colour
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: navigationStyles.titleColor, NSAttributedString.Key.font:navigationStyles.titleFont]  // Text Colour
         navigationController?.navigationBar.tintColor = navigationStyles.tintColor
@@ -83,10 +88,17 @@ class BaseViewController:UIViewController {
 
     }
    
-    func navigationLeftButtonSetup(action: Selector? = #selector(goLeftNavigationAction(sender:))) {
-
-        let image : UIImage = leftBarButtonStyles.image.withRenderingMode(.alwaysOriginal)
-        let leftButton = UIBarButtonItem(image: image, landscapeImagePhone: .checkmark, style: .done, target: self, action: action)
+    func navigationLeftButtonSetup(action: Selector = #selector(goLeftNavigationAction(sender:))) {
+        let button = UIButton()
+        button.setImage(leftBarButtonStyles.image, for: .normal)
+        button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 3)
+        button.layer.shadowOpacity = 1.0
+        button.layer.shadowRadius = 10.0
+        button.layer.masksToBounds = false
+        button.adjustsImageWhenHighlighted = false
+        button.addTarget(self, action: action, for: .touchUpInside)
+        let leftButton = UIBarButtonItem(customView: button)
         navigationItem.leftBarButtonItem = leftButton
 
     }
@@ -111,9 +123,9 @@ class BaseViewController:UIViewController {
         }
     }
     func navigationRightButtonSetup(action: Selector? = #selector(goRightNavigationAction(sender:))) {
-        let image : UIImage = rightBarButtonStyles.image.withRenderingMode(.alwaysOriginal)
-        let rightButton = UIBarButtonItem(image: image, landscapeImagePhone: .checkmark, style: .done, target: self, action: action)
-        navigationItem.rightBarButtonItem = rightButton
+//        let image : UIImage = rightBarButtonStyles.image.withRenderingMode(.alwaysOriginal)
+//        let rightButton = UIBarButtonItem(image: image, landscapeImagePhone: .checkmark, style: .done, target: self, action: action)
+//        navigationItem.rightBarButtonItem = rightButton
     }
 
     @objc func goRightNavigationAction(sender: Any) {

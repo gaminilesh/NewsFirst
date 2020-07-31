@@ -29,6 +29,7 @@ enum LeftMenuEnum: Int {
     case breakingNewsHub
     case notificationHub
     case shareThisApp
+    case lightMode
     case rateThisApp
     case leglePage
 
@@ -51,7 +52,7 @@ class LeftMenuVC: UIViewController {
         super.viewDidLoad()
         //let jeremyGif = UIImage.gifImageWithName("splashgif")
 //        topImageView.image = jeremyGif
-
+        self.view.backgroundColor = appTheamColor.white
         viewVersion.backgroundColor = appTheamColor.greyLight
     }
     
@@ -71,6 +72,11 @@ class LeftMenuVC: UIViewController {
         tableData.append(LeftMenuModel(id: .notificationHub, name: "Notification Hub", image: "notificationHub",isArrow:true))
         tableData.append(LeftMenuModel(id: .shareThisApp, name: "Share This App", image: "shareThisApp"))
         tableData.append(LeftMenuModel(id: .rateThisApp, name: "Rate This App", image: "rateThisApp"))
+        if AppUserDefaults.isDarkMode == true {
+            tableData.append(LeftMenuModel(id: .lightMode, name: "Night Mode", image: "nightMode"))
+        }else{
+            tableData.append(LeftMenuModel(id: .lightMode, name: "Light Mode", image: "nightMode"))
+        }
         tableData.append(LeftMenuModel(id: .leglePage, name: "Legle Page", image: "legalPages",isArrow:true))
 
         myTableView.reloadData()
@@ -85,6 +91,13 @@ class LeftMenuVC: UIViewController {
         else if menu.id == LeftMenuEnum.saveStories {
             let controller = SaveStoryVC.getInstance()
             self.navigationController?.pushViewController(controller, animated: true)
+        }else if menu.id == LeftMenuEnum.lightMode{
+            if AppUserDefaults.isDarkMode == true {
+                isDark = false
+            }else{
+                isDark = true
+            }
+            AppDelegate.shared.setInitialViewController()
         }
 
     }

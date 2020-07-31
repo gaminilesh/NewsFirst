@@ -21,20 +21,75 @@ class RecommendedModel {
     }
 
 }
-class SaveStoryVC: UIViewController {
+class SaveStoryVC: BaseViewController {
     var recommendedList:[RecommendedModel] = []
 
+    
+    @IBOutlet weak var segmentMenu: UISegmentedControl!
     @IBOutlet weak var tableview: UITableView!
     class func getInstance()-> SaveStoryVC {
         return SaveStoryVC.viewController(storyboard: Constants.Storyboard.SideMenu)
     }
 
+  let buttonBar = UIView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         renderTableData()
+        setupNavigation()
+        // Add lines below selectedSegmentIndex
+        segmentMenu.backgroundColor = appTheamColor.white
+        segmentMenu.tintColor = .clear
+        if #available(iOS 13.0, *) {
+            segmentMenu.selectedSegmentTintColor = .clear
+        } else {
+            // Fallback on earlier versions
+        }
+        segmentMenu.selectedSegmentIndex = 0
+        // Add lines below the segmented control's tintColor
+//        segmentMenu.setTitleTextAttributes([
+//            NSAttributedString.Key.font : AppFont.Medium_Body,
+//            NSAttributedString.Key.foregroundColor: appTheamColor.black
+//            ], for: .normal)
+//        segmentMenu.setTitleTextAttributes([
+//            NSAttributedString.Key.font : AppFont.Medium_Body,
+//            NSAttributedString.Key.foregroundColor: appTheamColor.black
+//            ], for: .selected)
 
+
+
+        // This needs to be false since we are using auto layout constraints
+        buttonBar.translatesAutoresizingMaskIntoConstraints = false
+        buttonBar.backgroundColor = appTheamColor.red
+        view.addSubview(buttonBar)
+        // Constrain the top of the button bar to the bottom of the segmented control
+        buttonBar.topAnchor.constraint(equalTo: segmentMenu.bottomAnchor).isActive = true
+        buttonBar.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        // Constrain the button bar to the left side of the segmented control
+        buttonBar.leftAnchor.constraint(equalTo: segmentMenu.leftAnchor).isActive = true
+        // Constrain the button bar to the width of the segmented control divided by the number of segments
+        buttonBar.widthAnchor.constraint(equalTo: segmentMenu.widthAnchor, multiplier: 1 / CGFloat(segmentMenu.numberOfSegments)).isActive = true
+
+        
+        
     }
+    @IBAction func segmentValueChange(_ sender: Any) {
+          UIView.animate(withDuration: 0.3) {
+            self.buttonBar.frame.origin.x = (((self.segmentMenu.frame.width / CGFloat(self.segmentMenu.numberOfSegments)) + 15) * CGFloat(self.segmentMenu.selectedSegmentIndex))
+            if self.buttonBar.frame.origin.x == 0{
+                self.buttonBar.frame.origin.x = 15
+            }
+           }
+      }
+    //TODO:- Custome Navigation Render.
+    func setupNavigation()  {
+        extendedLayoutIncludesOpaqueBars = true
+        setNavigationBarSetup()
+        leftBarButtonStyles.image = #imageLiteral(resourceName: "back")
+        navigationLeftButtonSetup()
+    }
+
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

@@ -10,13 +10,10 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
-    
     class var shared: AppDelegate {
         return (UIApplication.shared.delegate as? AppDelegate) ?? AppDelegate()
     }
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -27,7 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     //MARK:- Set Initial ViewController
     func setInitialViewController() {
-        let controller = SubHomeVC.getInstance()
+        isDark = AppUserDefaults.isDarkMode
+        let controller = HomeVC.getInstance()
         let navigation = UINavigationController(rootViewController: controller)
         window?.rootViewController = navigation
 

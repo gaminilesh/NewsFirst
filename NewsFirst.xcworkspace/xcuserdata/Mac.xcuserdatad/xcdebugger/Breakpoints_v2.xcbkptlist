@@ -14,9 +14,9 @@
             filePath = "NewsFirst/ViewControllers/BaseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "goRightNavigationAction(sender:)"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "navigationRightButtonSetup(action:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
