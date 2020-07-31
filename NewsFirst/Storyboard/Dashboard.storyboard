@@ -86,5 +86,89 @@
             </objects>
             <point key="canvasLocation" x="-172.46376811594203" y="20.758928571428569"/>
         </scene>
+        <!--Sub HomeVC-->
+        <scene sceneID="Bzd-nj-cig">
+            <objects>
+                <viewController storyboardIdentifier="SubHomeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Wgu-09-Ztr" customClass="SubHomeVC" customModule="NewsFirst" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="U0d-Ke-9rK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T5L-gG-PPH">
+                                <rect key="frame" x="184" y="239" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="leftMenuAction:" destination="Wgu-09-Ztr" eventType="touchUpInside" id="yiW-V5-fgP"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LQs-G2-wCN">
+                                <rect key="frame" x="0.0" y="44" width="414" height="783"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="qjF-XL-Y25">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="89"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </view>
+                                <connections>
+                                    <outlet property="dataSource" destination="Wgu-09-Ztr" id="cwz-xn-5dt"/>
+                                    <outlet property="delegate" destination="Wgu-09-Ztr" id="bOC-r1-K0G"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hmX-hO-UxU">
+                                <rect key="frame" x="0.0" y="827" width="414" height="35"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="XQN-je-J2h"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xpj-H1-LP8" customClass="BreakingNewsView" customModule="NewsFirst" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="0.0"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="Q2u-oU-qv8"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fLb-HS-FTo" customClass="LiveNewsPopUpView" customModule="NewsFirst" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="652" width="414" height="175"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="175" id="JWh-bq-jvf"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LQs-G2-wCN" firstAttribute="top" secondItem="Xpj-H1-LP8" secondAttribute="bottom" id="7dp-Ab-3to"/>
+                            <constraint firstAttribute="trailing" secondItem="hmX-hO-UxU" secondAttribute="trailing" id="CU7-41-eOV"/>
+                            <constraint firstItem="Xpj-H1-LP8" firstAttribute="leading" secondItem="7lN-CO-dnj" secondAttribute="leading" id="Gmg-1k-wDL"/>
+                            <constraint firstItem="7lN-CO-dnj" firstAttribute="trailing" secondItem="Xpj-H1-LP8" secondAttribute="trailing" id="MCG-7q-Ezk"/>
+                            <constraint firstItem="hmX-hO-UxU" firstAttribute="top" secondItem="LQs-G2-wCN" secondAttribute="bottom" id="NbE-EQ-7Pa"/>
+                            <constraint firstItem="fLb-HS-FTo" firstAttribute="leading" secondItem="7lN-CO-dnj" secondAttribute="leading" id="Ts7-EU-uAv"/>
+                            <constraint firstItem="hmX-hO-UxU" firstAttribute="leading" secondItem="U0d-Ke-9rK" secondAttribute="leading" id="Uc5-ua-NcK"/>
+                            <constraint firstItem="LQs-G2-wCN" firstAttribute="leading" secondItem="7lN-CO-dnj" secondAttribute="leading" id="Wye-lo-WgC"/>
+                            <constraint firstItem="7lN-CO-dnj" firstAttribute="trailing" secondItem="fLb-HS-FTo" secondAttribute="trailing" id="btI-85-Qc7"/>
+                            <constraint firstItem="7lN-CO-dnj" firstAttribute="bottom" secondItem="hmX-hO-UxU" secondAttribute="bottom" id="ju8-gc-YPt"/>
+                            <constraint firstItem="7lN-CO-dnj" firstAttribute="trailing" secondItem="LQs-G2-wCN" secondAttribute="trailing" id="noI-0b-NaY"/>
+                            <constraint firstItem="Xpj-H1-LP8" firstAttribute="top" secondItem="7lN-CO-dnj" secondAttribute="top" id="oWS-PG-Rl2"/>
+                            <constraint firstItem="hmX-hO-UxU" firstAttribute="top" secondItem="fLb-HS-FTo" secondAttribute="bottom" id="q7n-ed-bgC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7lN-CO-dnj"/>
+                    </view>
+                    <connections>
+                        <outlet property="bottomView" destination="hmX-hO-UxU" id="S5v-Be-cew"/>
+                        <outlet property="tblList" destination="LQs-G2-wCN" id="fgz-nL-sMa"/>
+                        <outlet property="viewBrekingNews" destination="Xpj-H1-LP8" id="VKO-om-jeF"/>
+                        <outlet property="viewBrekingNewsHeightConstraint" destination="Q2u-oU-qv8" id="sMW-Vv-8o4"/>
+                        <outlet property="viewLiveNewsPopup" destination="fLb-HS-FTo" id="ITg-XM-QDf"/>
+                        <outlet property="viewLiveNewsPopupHeightConstraint" destination="JWh-bq-jvf" id="P2b-sn-iv1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QTy-Mp-RQq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="479.71014492753625" y="15.401785714285714"/>
+        </scene>
     </scenes>
 </document>

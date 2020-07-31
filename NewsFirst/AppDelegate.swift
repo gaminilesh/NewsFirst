@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     //MARK:- Set Initial ViewController
     func setInitialViewController() {
-        let controller = HomeVC.getInstance()
+        let controller = SubHomeVC.getInstance()
         let navigation = UINavigationController(rootViewController: controller)
         window?.rootViewController = navigation
 
