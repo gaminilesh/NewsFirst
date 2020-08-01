@@ -10,6 +10,8 @@ import UIKit
 
 class LeftMenuCell: UITableViewCell {
     @IBOutlet weak var imgIcon: UIImageView!
+    @IBOutlet weak var imgArrowIcon: UIImageView!
+    @IBOutlet weak var switchControler: UISwitch!
 
     @IBOutlet weak var lblName: UILabel!
     override func awakeFromNib() {
@@ -18,7 +20,14 @@ class LeftMenuCell: UITableViewCell {
         lblName.font = AppFont.Subhead
         lblName.textColor = appTheamColor.black
     }
-
+    @IBAction func switchValueChange(_ sender: UISwitch) {
+        if sender.isOn == true{
+            switchControler.tintColor = appTheamColor.green
+        }else{
+            switchControler.tintColor = appTheamColor.red
+        }
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

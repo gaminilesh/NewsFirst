@@ -18,22 +18,22 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZ4-IS-Sq1">
-                        <rect key="frame" x="15" y="10" width="290" height="68.5"/>
+                        <rect key="frame" x="12" y="10" width="296" height="68.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jot-Oe-5fH">
-                                <rect key="frame" x="0.0" y="0.0" width="290" height="20.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="296" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JfW-mq-a8U">
-                                <rect key="frame" x="0.0" y="24.5" width="290" height="21"/>
+                                <rect key="frame" x="0.0" y="24.5" width="296" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQN-en-hNb">
-                                <rect key="frame" x="0.0" y="47.5" width="290" height="21"/>
+                                <rect key="frame" x="0.0" y="47.5" width="296" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -65,8 +65,8 @@
                     <constraint firstItem="5SC-JA-W5S" firstAttribute="top" secondItem="aZ4-IS-Sq1" secondAttribute="bottom" constant="10" id="CMo-Uh-xbc"/>
                     <constraint firstAttribute="trailing" secondItem="5SC-JA-W5S" secondAttribute="trailing" id="Mps-kl-PKP"/>
                     <constraint firstItem="aZ4-IS-Sq1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="gxJ-fh-cod"/>
-                    <constraint firstAttribute="trailing" secondItem="aZ4-IS-Sq1" secondAttribute="trailing" constant="15" id="oFx-hg-6uU"/>
-                    <constraint firstItem="aZ4-IS-Sq1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="ocz-qa-67x"/>
+                    <constraint firstAttribute="trailing" secondItem="aZ4-IS-Sq1" secondAttribute="trailing" constant="12" id="oFx-hg-6uU"/>
+                    <constraint firstItem="aZ4-IS-Sq1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="ocz-qa-67x"/>
                     <constraint firstItem="5SC-JA-W5S" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="sQa-Vp-Baa"/>
                 </constraints>
             </tableViewCellContentView>

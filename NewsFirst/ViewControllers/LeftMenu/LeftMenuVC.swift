@@ -12,11 +12,13 @@ struct LeftMenuModel {
     var name: String = ""
     var image: String = ""
     var isArrow: Bool = false
-    init(id: LeftMenuEnum, name: String,image: String, isArrow:Bool = false) {
+    var isSwitch: Bool = false
+    init(id: LeftMenuEnum, name: String,image: String, isArrow:Bool = false, isSwitch:Bool = false) {
         self.id = id
         self.name = name
         self.image = image
         self.isArrow = isArrow
+        self.isSwitch = isSwitch
     }
 }
 
@@ -62,9 +64,15 @@ class LeftMenuVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
         fillData()
     }
-    
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        return .lightContent
+//    }
+    override var prefersStatusBarHidden: Bool {
+          return false
+    }
     func fillData() {
         tableData.removeAll()
         
@@ -75,7 +83,8 @@ class LeftMenuVC: UIViewController {
         tableData.append(LeftMenuModel(id: .breakingNewsHub, name: "Breaking News Hub", image: "breakingNewsHub",isArrow:true))
         tableData.append(LeftMenuModel(id: .notificationHub, name: "Notification Hub", image: "notificationHub",isArrow:true))
 //        if AppUserDefaults.isDarkMode == true {
-            tableData.append(LeftMenuModel(id: .lightMode, name: "Night Mode", image: "nightMode"))
+        tableData.append(LeftMenuModel(id: .lightMode, name: "Night Mode", image: "nightMode", isArrow: false, isSwitch: true))
+
 //        }else{
 //            tableData.append(LeftMenuModel(id: .lightMode, name: "Light Mode", image: "nightMode"))
 //        }
@@ -92,6 +101,11 @@ class LeftMenuVC: UIViewController {
 
     }
     func changeViewController(_ menu: LeftMenuModel) {
+        if menu.id == LeftMenuEnum.home {
+            let controller = HomeVC.getInstance()
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+
 //        if menu.id == LeftMenuEnum.notificationSetting {
 //            let controller = NotificationSettingVC.getInstance()
 //            self.navigationController?.pushViewController(controller, animated: true)
@@ -129,10 +143,17 @@ extension LeftMenuVC: UITableViewDataSource, UITableViewDelegate {
             cell.imgIcon.image = UIImage(named:tableData[indexPath.row].image )
             cell.lblName.text = tableData[indexPath.row].name
             if tableData[indexPath.row].isArrow {
-                cell.accessoryType = .disclosureIndicator;
+                cell.imgArrowIcon.isHidden = false
             }else {
-                cell.accessoryType = .none;
+                cell.imgArrowIcon.isHidden = true
             }
+            if tableData[indexPath.row].isSwitch {
+                cell.switchControler.isHidden = false
+            }else {
+                cell.switchControler.isHidden = true
+            }
+            cell.switchControler.tintColor = .red
+            cell.tintColor = appTheamColor.black
 
             return cell
         }

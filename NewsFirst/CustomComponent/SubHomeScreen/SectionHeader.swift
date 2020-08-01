@@ -11,7 +11,9 @@ import UIKit
 class SectionHeader: UITableViewCell {
 
     @IBOutlet weak var lblTitle: UILabel!
-    
+    @IBOutlet weak var viewOne: UIView!
+    @IBOutlet weak var viewSecond: UIView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,6 +22,8 @@ class SectionHeader: UITableViewCell {
         lblTitle.font = AppFont.Medium_Title3
         lblTitle.textColor = appTheamColor.black
 
+        drawDottedLine(start: CGPoint(x: viewOne.bounds.minX, y: viewOne.bounds.minY), end: CGPoint(x: viewOne.bounds.maxX, y: viewOne.bounds.minY), view: viewOne)
+        drawDottedLine(start: CGPoint(x: viewOne.bounds.minX, y: viewOne.bounds.minY), end: CGPoint(x: viewOne.bounds.maxX, y: viewOne.bounds.minY), view: viewSecond)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

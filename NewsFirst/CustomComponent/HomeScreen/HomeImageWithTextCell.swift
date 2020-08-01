@@ -37,7 +37,7 @@ class HomeImageWithTextCell: UITableViewCell {
         imgvPhoto.clipsToBounds = true
         
         lblDescription.text = ""//obj.dateTime
-        lblDescription.font = AppFont.Body
+        lblDescription.font = AppFont.Medium_Body
         lblDescription.textColor = .black
         
         lblTime.text = ""//obj.dateTime

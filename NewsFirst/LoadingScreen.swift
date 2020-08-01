@@ -22,11 +22,12 @@ class LoadingScreen: UIViewController
     override func viewDidLoad(){
         super.viewDidLoad()
 
-        let jeremyGif = UIImage.gifImageWithName("splashgif")
-        loadingImageView.image = jeremyGif
+//        let jeremyGif = UIImage.gifImageWithName("splashgif")
+        loadingImageView.image = #imageLiteral(resourceName: "logo-Dark")
         
         lblDate.text = Date().dateString(format: AppConfigure.dateFormatWithTime)
-        lblDate.font = AppFont.Footnote
+        lblDate.font = AppFont.Medium_Footnote
+        lblDate.textColor = appTheamColor.grey
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             self.finishedLoading()

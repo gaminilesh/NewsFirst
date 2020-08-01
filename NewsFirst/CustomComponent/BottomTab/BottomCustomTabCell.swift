@@ -16,7 +16,7 @@ class BottomCustomTabCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        lblTitle.font = AppFont.Headline
+        lblTitle.font = AppFont.Medium_Headline
         lblTitle.textColor = appTheamColor.black
         seperaterView.backgroundColor = appTheamColor.red
     }

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,8 +19,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7l-Xo-fAX">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mobifinIcon" translatesAutoresizingMaskIntoConstraints="NO" id="wYl-Bx-XKy">
-                                        <rect key="frame" x="191" y="354" width="32" height="70"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-Dark" translatesAutoresizingMaskIntoConstraints="NO" id="wYl-Bx-XKy">
+                                        <rect key="frame" x="40" y="354" width="334" height="70"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="RQH-lM-u34"/>
@@ -32,7 +33,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="rJ6-kx-gEv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="f7l-Xo-fAX" secondAttribute="leading" constant="10" id="0SH-dk-GQh"/>
                                     <constraint firstItem="wYl-Bx-XKy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="f7l-Xo-fAX" secondAttribute="leading" constant="40" id="QbR-0w-ag5"/>
@@ -106,6 +107,6 @@
     </scenes>
     <resources>
         <image name="adsImage" width="239.33332824707031" height="373.66665649414062"/>
-        <image name="mobifinIcon" width="16" height="16"/>
+        <image name="logo-Dark" width="609" height="137"/>
     </resources>
 </document>

@@ -43,7 +43,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cGp-0l-v7X" customClass="BreakingNewsView" customModule="NewsFirst" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="99" width="414" height="80"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="BWA-Oa-cMM"/>
                                 </constraints>
@@ -59,31 +59,31 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="55"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGe-sF-33U">
-                                        <rect key="frame" x="10" y="5" width="45" height="45"/>
+                                        <rect key="frame" x="8" y="5" width="45" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="FgE-z7-S9w"/>
                                             <constraint firstAttribute="width" constant="45" id="d3y-Yg-BuE"/>
                                         </constraints>
-                                        <state key="normal" image="menuShedow"/>
+                                        <state key="normal" image="menu"/>
                                         <connections>
                                             <action selector="menuButtomAction:" destination="sxW-55-hTH" eventType="touchUpInside" id="tGF-oq-oLq"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-Dark" translatesAutoresizingMaskIntoConstraints="NO" id="RXX-EA-JvU">
-                                        <rect key="frame" x="65" y="10" width="180" height="35"/>
+                                        <rect key="frame" x="53" y="10" width="180" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="4bN-Pn-L1k"/>
                                             <constraint firstAttribute="width" constant="180" id="tm9-qY-ytU"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.99607843137254903" green="0.99607843137254903" blue="0.99607843137254903" alpha="0.82014744718309862" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="0.70301496478873238" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="RXX-EA-JvU" firstAttribute="centerY" secondItem="DtF-5k-UEk" secondAttribute="centerY" id="9rJ-X1-Cyi"/>
-                                    <constraint firstItem="SGe-sF-33U" firstAttribute="leading" secondItem="DtF-5k-UEk" secondAttribute="leading" constant="10" id="b08-mG-gsG"/>
+                                    <constraint firstItem="SGe-sF-33U" firstAttribute="leading" secondItem="DtF-5k-UEk" secondAttribute="leading" constant="8" id="b08-mG-gsG"/>
                                     <constraint firstItem="SGe-sF-33U" firstAttribute="centerY" secondItem="DtF-5k-UEk" secondAttribute="centerY" id="cHl-1G-abB"/>
                                     <constraint firstAttribute="height" constant="55" id="rWS-oj-iFe"/>
-                                    <constraint firstItem="RXX-EA-JvU" firstAttribute="leading" secondItem="SGe-sF-33U" secondAttribute="trailing" constant="10" id="uLw-KO-Wrg"/>
+                                    <constraint firstItem="RXX-EA-JvU" firstAttribute="leading" secondItem="SGe-sF-33U" secondAttribute="trailing" id="uLw-KO-Wrg"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -211,6 +211,6 @@
     </scenes>
     <resources>
         <image name="logo-Dark" width="913.5" height="205.5"/>
-        <image name="menuShedow" width="67.5" height="67.5"/>
+        <image name="menu" width="27.5" height="27.5"/>
     </resources>
 </document>

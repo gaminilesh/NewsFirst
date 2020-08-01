@@ -20,6 +20,7 @@ class HomeVC: BaseViewController,MyDataSendingDelegateProtocol {
     var lastPoint : CGPoint = CGPoint.zero
     var pinViewFram : CGRect = CGRect.zero
     
+
     @IBOutlet weak var tblList: UITableView!
     @IBOutlet weak var bottomView: UIView!
     //    var reppleView = RippleView.instanceFromNib()
@@ -42,6 +43,8 @@ class HomeVC: BaseViewController,MyDataSendingDelegateProtocol {
             }
             tblList.reloadData()
         }
+
+        self.tblList.scrollToRow(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
     }
     
     @IBAction func menuButtomAction(_ sender: Any) {
@@ -62,7 +65,6 @@ class HomeVC: BaseViewController,MyDataSendingDelegateProtocol {
         self.id = contentModel.id
         self.changeData(str: contentModel.fileName)
     }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -80,6 +82,15 @@ class HomeVC: BaseViewController,MyDataSendingDelegateProtocol {
             }
             tblList.reloadData()
         }
+        
+        menuButton.setImage(#imageLiteral(resourceName: "menu"), for: .normal)
+        menuButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        menuButton.layer.shadowOffset = CGSize(width: 0, height: 3)
+        menuButton.layer.shadowOpacity = 1.0
+        menuButton.layer.shadowRadius = 10.0
+        menuButton.layer.masksToBounds = false
+        menuButton.adjustsImageWhenHighlighted = false
+
         //  self.passJsonFileName(fileName: "Data")
         //        let list = JSONReaderManager.sharedInstance.ReadJSON(_insideNodeValue: "Business")
         //        if list.count > 0 {
@@ -222,7 +233,8 @@ class HomeVC: BaseViewController,MyDataSendingDelegateProtocol {
         tblList.register(UINib(nibName: "HomeTitleCell", bundle: nil), forCellReuseIdentifier: "HomeTitleCell")
         
         tblList.register(UINib(nibName: "HomeAdvertiseCell", bundle: nil), forCellReuseIdentifier: "HomeAdvertiseCell")
-        
+        tblList.register(UINib(nibName: "BlankCell", bundle: nil), forCellReuseIdentifier: "BlankCell")
+
         
         
     }
@@ -425,7 +437,12 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
             cell?.objNews = news
             return cell ?? UITableViewCell()
         }
-        return UITableViewCell()
+        else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "BlankCell") as? BlankCell
+            cell?.separatorInset = UIEdgeInsets(top: 0, left: UIScreen.main.bounds.size.width, bottom: 0, right: 0)
+
+            return cell ?? UITableViewCell()
+        }
 //
 //        //
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "HomePhotoCell") as? HomePhotoCell

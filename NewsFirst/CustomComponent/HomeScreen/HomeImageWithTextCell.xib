@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X2T-DR-gB8">
-                        <rect key="frame" x="10" y="10" width="300" height="90"/>
+                        <rect key="frame" x="12" y="10" width="296" height="90"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kog-5W-Jim">
                                 <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
@@ -28,13 +28,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zE0-j6-QOf">
-                                <rect key="frame" x="98" y="0.0" width="202" height="20.5"/>
+                                <rect key="frame" x="98" y="0.0" width="198" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 Minutes ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKq-An-Dta">
-                                <rect key="frame" x="98" y="25.5" width="197" height="14.5"/>
+                                <rect key="frame" x="98" y="25.5" width="193" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -58,8 +58,8 @@
                 <constraints>
                     <constraint firstItem="X2T-DR-gB8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="C2R-ci-Zpb"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="X2T-DR-gB8" secondAttribute="bottom" constant="10" id="E8t-1p-CHC"/>
-                    <constraint firstAttribute="trailing" secondItem="X2T-DR-gB8" secondAttribute="trailing" constant="10" id="GrT-kG-okH"/>
-                    <constraint firstItem="X2T-DR-gB8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="jVE-Hj-Nms"/>
+                    <constraint firstAttribute="trailing" secondItem="X2T-DR-gB8" secondAttribute="trailing" constant="12" id="GrT-kG-okH"/>
+                    <constraint firstItem="X2T-DR-gB8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="jVE-Hj-Nms"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

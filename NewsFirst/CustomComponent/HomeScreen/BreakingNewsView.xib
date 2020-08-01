@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IGH-3X-WEf">
-                    <rect key="frame" x="15" y="8" width="384" height="21"/>
+                    <rect key="frame" x="12" y="8" width="390" height="21"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breaking News" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cS-WR-eQB">
                             <rect key="frame" x="0.0" y="0.66666666666666607" width="114.66666666666667" height="20.333333333333336"/>
@@ -30,13 +31,13 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 minutes ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIy-ZP-deu">
-                            <rect key="frame" x="120.66666666666666" y="4.6666666666666643" width="80.333333333333343" height="14.333333333333336"/>
+                            <rect key="frame" x="120.66666666666666" y="4.6666666666666652" width="80.333333333333343" height="14.333333333333336"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ch-bJ-dIB">
-                            <rect key="frame" x="369" y="3" width="15" height="15"/>
+                            <rect key="frame" x="375" y="3" width="15" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="15" id="jU7-fE-3mh"/>
                                 <constraint firstAttribute="height" constant="15" id="oFi-Ow-lMz"/>
@@ -61,7 +62,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flZ-uh-QG7">
-                    <rect key="frame" x="15" y="33" width="384" height="33.666666666666657"/>
+                    <rect key="frame" x="12" y="33" width="390" height="33.666666666666657"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -69,10 +70,10 @@
             </subviews>
             <color key="backgroundColor" red="0.66666666666666663" green="0.082352941176470587" blue="0.070588235294117646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="IGH-3X-WEf" secondAttribute="trailing" constant="15" id="BWx-kc-CSq"/>
-                <constraint firstItem="IGH-3X-WEf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="Lde-gd-e87"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="flZ-uh-QG7" secondAttribute="trailing" constant="15" id="UbJ-B7-wv9"/>
-                <constraint firstItem="flZ-uh-QG7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="Yhu-AA-mPt"/>
+                <constraint firstAttribute="trailing" secondItem="IGH-3X-WEf" secondAttribute="trailing" constant="12" id="BWx-kc-CSq"/>
+                <constraint firstItem="IGH-3X-WEf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="Lde-gd-e87"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="flZ-uh-QG7" secondAttribute="trailing" constant="12" id="UbJ-B7-wv9"/>
+                <constraint firstItem="flZ-uh-QG7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="Yhu-AA-mPt"/>
                 <constraint firstItem="IGH-3X-WEf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="mTq-pG-Rw7"/>
                 <constraint firstItem="flZ-uh-QG7" firstAttribute="top" secondItem="IGH-3X-WEf" secondAttribute="bottom" constant="4" id="o9d-FR-Mq2"/>
             </constraints>

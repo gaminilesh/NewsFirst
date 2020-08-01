@@ -56,7 +56,7 @@ class HomePhotoCell: UITableViewCell {
 
         lblTitle.text = "Photos"
         lblTitle.font = AppFont.Bold_Title3
-        lblTitle.textColor = appTheamColor.grey
+        lblTitle.textColor = appTheamColor.black
 
         lblDescription.font = AppFont.Bold_Callout
         lblDescription.textColor = appTheamColor.black

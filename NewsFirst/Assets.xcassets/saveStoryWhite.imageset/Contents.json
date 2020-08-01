@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Mask Group 18.png",
+      "filename" : "save W 100100.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Mask Group 18@2x.png",
+      "filename" : "save W 150150.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Mask Group 18@3x.png",
+      "filename" : "save W 200200.png",
       "scale" : "3x"
     }
   ],

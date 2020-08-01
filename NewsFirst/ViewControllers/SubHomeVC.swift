@@ -148,8 +148,10 @@ class SubHomeVC: BaseViewController {
         tblList.register(UINib(nibName: "SubHomeBulletCell", bundle: nil), forCellReuseIdentifier: "SubHomeBulletCell")
         tblList.register(UINib(nibName: "SubHomeTextCell", bundle: nil), forCellReuseIdentifier: "SubHomeTextCell")
         tblList.register(UINib(nibName: "SubHomeDetailCell", bundle: nil), forCellReuseIdentifier: "SubHomeDetailCell")
-        tblList.register(UINib(nibName: "HomeAdvertiseCell", bundle: nil), forCellReuseIdentifier: "HomeAdvertiseCell")
+        tblList.register(UINib(nibName: "SubHomeAdvertiseCell", bundle: nil), forCellReuseIdentifier: "SubHomeAdvertiseCell")
         tblList.register(UINib(nibName: "SectionHeader", bundle: nil), forCellReuseIdentifier: "SectionHeader")
+        tblList.register(UINib(nibName: "BlankCell", bundle: nil), forCellReuseIdentifier: "BlankCell")
+
     }
 }
 extension SubHomeVC : UITableViewDelegate, UITableViewDataSource {
@@ -186,8 +188,6 @@ extension SubHomeVC : UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
         if indexPath.section == 0 {
             let news = newsList[indexPath.row]
             if news._type == NewsType.Details.rawValue {
@@ -211,7 +211,7 @@ extension SubHomeVC : UITableViewDelegate, UITableViewDataSource {
                 return cell ?? UITableViewCell()
             }
             else if news._type == NewsType.Advertise.rawValue {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "HomeAdvertiseCell") as? HomeAdvertiseCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "SubHomeAdvertiseCell") as? SubHomeAdvertiseCell
                 cell?.objNews = news
                 return cell ?? UITableViewCell()
             }
@@ -228,7 +228,11 @@ extension SubHomeVC : UITableViewDelegate, UITableViewDataSource {
                 return cell ?? UITableViewCell()
            // }
         }
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BlankCell") as? BlankCell
+        cell?.separatorInset = UIEdgeInsets(top: 0, left: UIScreen.main.bounds.size.width, bottom: 0, right: 0)
+
+        return cell ?? UITableViewCell()
+
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

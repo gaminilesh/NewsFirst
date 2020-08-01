@@ -19,27 +19,32 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nxD-Qh-DEF">
                         <rect key="frame" x="0.0" y="8" width="451" height="1"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="dr4-y4-PXi"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qFi-mA-11V">
                         <rect key="frame" x="0.0" y="11" width="451" height="1"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="x6Z-99-Aoy"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular Stories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Yf-hd-fXg">
-                        <rect key="frame" x="10" y="12" width="431" height="57"/>
+                        <rect key="frame" x="12" y="12" width="427" height="57"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EqF-z6-gvg">
+                        <rect key="frame" x="0.0" y="24" width="0.0" height="0.0"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="7Yf-hd-fXg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="0qc-gE-8Fo"/>
+                    <constraint firstItem="7Yf-hd-fXg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="0qc-gE-8Fo"/>
                     <constraint firstAttribute="trailing" secondItem="qFi-mA-11V" secondAttribute="trailing" id="3Km-ja-Rib"/>
                     <constraint firstAttribute="trailing" secondItem="nxD-Qh-DEF" secondAttribute="trailing" id="E4n-Y3-XiL"/>
                     <constraint firstAttribute="bottom" secondItem="7Yf-hd-fXg" secondAttribute="bottom" id="Pvk-sj-sEI"/>
@@ -48,12 +53,14 @@
                     <constraint firstItem="nxD-Qh-DEF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="g9C-2P-VfJ"/>
                     <constraint firstItem="qFi-mA-11V" firstAttribute="top" secondItem="nxD-Qh-DEF" secondAttribute="bottom" constant="2" id="gzS-Js-ubR"/>
                     <constraint firstItem="7Yf-hd-fXg" firstAttribute="top" secondItem="qFi-mA-11V" secondAttribute="bottom" id="hYm-R2-HWw"/>
-                    <constraint firstAttribute="trailing" secondItem="7Yf-hd-fXg" secondAttribute="trailing" constant="10" id="maE-Zd-MDr"/>
+                    <constraint firstAttribute="trailing" secondItem="7Yf-hd-fXg" secondAttribute="trailing" constant="12" id="maE-Zd-MDr"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="lblTitle" destination="7Yf-hd-fXg" id="Yby-ME-f1x"/>
+                <outlet property="viewOne" destination="nxD-Qh-DEF" id="GeO-gS-D1A"/>
+                <outlet property="viewSecond" destination="qFi-mA-11V" id="YyP-1A-GYZ"/>
             </connections>
             <point key="canvasLocation" x="84.782608695652186" y="98.102678571428569"/>
         </tableViewCell>
