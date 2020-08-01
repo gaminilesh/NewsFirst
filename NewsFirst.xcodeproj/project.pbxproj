@@ -36,6 +36,10 @@
 		047F142224D465CB00DED643 /* LoadingAdsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F142124D465CB00DED643 /* LoadingAdsScreen.swift */; };
 		0494494524D51A880080D13A /* SectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0494494324D51A880080D13A /* SectionHeader.xib */; };
 		0494494624D51A880080D13A /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0494494424D51A880080D13A /* SectionHeader.swift */; };
+		0494494924D543490080D13A /* BlankCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0494494724D543490080D13A /* BlankCell.xib */; };
+		0494494A24D543490080D13A /* BlankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0494494824D543490080D13A /* BlankCell.swift */; };
+		0494494D24D55C3F0080D13A /* SubHomeAdvertiseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0494494B24D55C3F0080D13A /* SubHomeAdvertiseCell.swift */; };
+		0494494E24D55C3F0080D13A /* SubHomeAdvertiseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0494494C24D55C3F0080D13A /* SubHomeAdvertiseCell.xib */; };
 		04945AF924CFE089009E82D1 /* LeftMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04945AEF24CFE089009E82D1 /* LeftMenuCell.swift */; };
 		04945AFA24CFE089009E82D1 /* SNotificationSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04945AF024CFE089009E82D1 /* SNotificationSettingCell.swift */; };
 		04945AFB24CFE089009E82D1 /* SaveStoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04945AF124CFE089009E82D1 /* SaveStoryCell.swift */; };
@@ -128,6 +132,10 @@
 		047F142124D465CB00DED643 /* LoadingAdsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingAdsScreen.swift; sourceTree = "<group>"; };
 		0494494324D51A880080D13A /* SectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeader.xib; sourceTree = "<group>"; };
 		0494494424D51A880080D13A /* SectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		0494494724D543490080D13A /* BlankCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlankCell.xib; sourceTree = "<group>"; };
+		0494494824D543490080D13A /* BlankCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlankCell.swift; sourceTree = "<group>"; };
+		0494494B24D55C3F0080D13A /* SubHomeAdvertiseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubHomeAdvertiseCell.swift; sourceTree = "<group>"; };
+		0494494C24D55C3F0080D13A /* SubHomeAdvertiseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubHomeAdvertiseCell.xib; sourceTree = "<group>"; };
 		04945AEF24CFE089009E82D1 /* LeftMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuCell.swift; sourceTree = "<group>"; };
 		04945AF024CFE089009E82D1 /* SNotificationSettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNotificationSettingCell.swift; sourceTree = "<group>"; };
 		04945AF124CFE089009E82D1 /* SaveStoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveStoryCell.swift; sourceTree = "<group>"; };
@@ -392,6 +400,8 @@
 				7D6D2DC524D3C92A003524CC /* SubHomeDetailCell.xib */,
 				0494494424D51A880080D13A /* SectionHeader.swift */,
 				0494494324D51A880080D13A /* SectionHeader.xib */,
+				0494494B24D55C3F0080D13A /* SubHomeAdvertiseCell.swift */,
+				0494494C24D55C3F0080D13A /* SubHomeAdvertiseCell.xib */,
 			);
 			path = SubHomeScreen;
 			sourceTree = "<group>";
@@ -424,6 +434,8 @@
 		7D91B52824CF289600E4F47D /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				0494494824D543490080D13A /* BlankCell.swift */,
+				0494494724D543490080D13A /* BlankCell.xib */,
 				7D3FC72624CFCB1E0075509F /* HomeTitleCell.swift */,
 				7D3FC72724CFCB1E0075509F /* HomeTitleCell.xib */,
 				7D91B52924CF295D00E4F47D /* HomeImageWithTextCell.swift */,
@@ -567,6 +579,8 @@
 				7D7883D124D47EC000F469E8 /* 0.json in Resources */,
 				7D91B53424CF32A800E4F47D /* CollectionViewPhotoCell.xib in Resources */,
 				7D7883D424D47EC000F469E8 /* 3.json in Resources */,
+				0494494E24D55C3F0080D13A /* SubHomeAdvertiseCell.xib in Resources */,
+				0494494924D543490080D13A /* BlankCell.xib in Resources */,
 				7DA28A1924D0938400CB7854 /* RippleView.xib in Resources */,
 				7D91B53024CF2E4E00E4F47D /* HomePhotoCell.xib in Resources */,
 				045E5F9724CD2E8D004F4FAA /* twisting_circle.gif in Resources */,
@@ -634,6 +648,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D91B53324CF32A800E4F47D /* CollectionViewPhotoCell.swift in Sources */,
+				0494494A24D543490080D13A /* BlankCell.swift in Sources */,
 				7D98441C24D4F9A9001E294B /* NavigationTitleView.swift in Sources */,
 				04BD5C5D24D12A71004218FF /* BottomCustomTabCell.swift in Sources */,
 				045E5FC124CD35F9004F4FAA /* ArrayExtended.swift in Sources */,
@@ -668,6 +683,7 @@
 				7D91B52B24CF295D00E4F47D /* HomeImageWithTextCell.swift in Sources */,
 				7D98441624D4F9A9001E294B /* BaseViewController.swift in Sources */,
 				04BD5C5C24D12A71004218FF /* BottomCustomTab.swift in Sources */,
+				0494494D24D55C3F0080D13A /* SubHomeAdvertiseCell.swift in Sources */,
 				04945AFA24CFE089009E82D1 /* SNotificationSettingCell.swift in Sources */,
 				04FEF5F024CD2821004CB475 /* AppFont.swift in Sources */,
 				7D98441E24D4F9A9001E294B /* NotificationSettingVC.swift in Sources */,
