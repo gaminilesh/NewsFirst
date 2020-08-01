@@ -15,7 +15,8 @@ class SubHomeVC: BaseViewController {
     
     var lastPoint : CGPoint = CGPoint.zero
     var pinViewFram : CGRect = CGRect.zero
-    
+    var selectedId = 0
+    var name : String! = ""
     @IBOutlet weak var tblList: UITableView!
     @IBOutlet weak var bottomView: UIView!
     var reppleView = RippleView.instanceFromNib()
@@ -35,8 +36,12 @@ class SubHomeVC: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
+        
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        bottomTabView.selectIndex = selectedId
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -82,14 +87,40 @@ class SubHomeVC: BaseViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             self.hideWithAnimation(hidden: true)
         }
+        
+        
+        bottomView.addSubview(bottomTabView)
+        bottomTabView.translatesAutoresizingMaskIntoConstraints = false
+        
+        bottomView.addConstraint(NSLayoutConstraint(item: bottomTabView, attribute: .top, relatedBy: .equal, toItem: bottomView, attribute: .top, multiplier: 1, constant: 0))
+        bottomView.addConstraint(NSLayoutConstraint(item: bottomTabView, attribute: .bottom, relatedBy: .equal, toItem: bottomView, attribute: .bottom, multiplier: 1, constant: 0))
+        bottomView.addConstraint(NSLayoutConstraint(item: bottomTabView, attribute: .leading, relatedBy: .equal, toItem: bottomView, attribute: .leading, multiplier: 1, constant: 0))
+        bottomView.addConstraint(NSLayoutConstraint(item: bottomTabView, attribute: .trailing, relatedBy: .equal, toItem: bottomView, attribute: .trailing, multiplier: 1, constant: 0))
+        
+        bottomTabView.selectedActionListener = {[weak self] (content) in
+            DispatchQueue.main.async() {
+                if let weakSelf = self {
+                    //   weakSelf.changeData(str: content.fileName)
+                    //weakSelf.passJsonFileName(fileName: content.fileName)
+                }
+            }
+        }
+        v.lblTitle.text = name
+        v.handleBackButton = { [weak self] (sender) in
+            if let weakSelf = self {
+                weakSelf.navigationController?.popViewController(animated: true)
+            }
+            
+        }
+        
     }
     
     func hideWithAnimation(hidden: Bool) {
         tblList.beginUpdates()
         //  heightConstraint.constant = 0
-        UIView.animate(withDuration: 0.3) {
-            self.tblList.tableHeaderView = self.geaderView
-            self.geaderView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 50)
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            self?.tblList.tableHeaderView = self?.geaderView
+            self?.geaderView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 50)
         }
         tblList.endUpdates()
     }

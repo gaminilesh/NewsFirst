@@ -24,6 +24,9 @@
                                 <constraint firstAttribute="width" constant="30" id="wxA-hY-eev"/>
                             </constraints>
                             <state key="normal" image="back"/>
+                            <connections>
+                                <action selector="btnBackTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="d4m-Pl-HnF"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kY7-n9-cSQ">
                             <rect key="frame" x="50" y="15" width="42" height="20.5"/>

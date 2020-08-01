@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,7 +25,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="K9Q-M3-fez">
-                                <rect key="frame" x="0.0" y="124" width="414" height="703"/>
+                                <rect key="frame" x="0.0" y="179" width="414" height="648"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -42,7 +42,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cGp-0l-v7X" customClass="BreakingNewsView" customModule="NewsFirst" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="414" height="80"/>
+                                <rect key="frame" x="0.0" y="99" width="414" height="80"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="BWA-Oa-cMM"/>
@@ -55,6 +55,34 @@
                                     <constraint firstAttribute="height" constant="175" id="zOa-b1-Zpb"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DtF-5k-UEk">
+                                <rect key="frame" x="0.0" y="44" width="414" height="55"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGe-sF-33U">
+                                        <rect key="frame" x="10" y="5" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="FgE-z7-S9w"/>
+                                            <constraint firstAttribute="width" constant="45" id="d3y-Yg-BuE"/>
+                                        </constraints>
+                                        <state key="normal" image="menu"/>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-Dark" translatesAutoresizingMaskIntoConstraints="NO" id="RXX-EA-JvU">
+                                        <rect key="frame" x="65" y="10" width="180" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="4bN-Pn-L1k"/>
+                                            <constraint firstAttribute="width" constant="180" id="tm9-qY-ytU"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99607843137254903" green="0.99607843137254903" blue="0.99607843137254903" alpha="0.82014744718309862" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="RXX-EA-JvU" firstAttribute="centerY" secondItem="DtF-5k-UEk" secondAttribute="centerY" id="9rJ-X1-Cyi"/>
+                                    <constraint firstItem="SGe-sF-33U" firstAttribute="leading" secondItem="DtF-5k-UEk" secondAttribute="leading" constant="10" id="b08-mG-gsG"/>
+                                    <constraint firstItem="SGe-sF-33U" firstAttribute="centerY" secondItem="DtF-5k-UEk" secondAttribute="centerY" id="cHl-1G-abB"/>
+                                    <constraint firstAttribute="height" constant="55" id="rWS-oj-iFe"/>
+                                    <constraint firstItem="RXX-EA-JvU" firstAttribute="leading" secondItem="SGe-sF-33U" secondAttribute="trailing" constant="10" id="uLw-KO-Wrg"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -64,19 +92,24 @@
                             <constraint firstItem="cGp-0l-v7X" firstAttribute="leading" secondItem="dH9-Sa-W86" secondAttribute="leading" id="D2h-e3-AOI"/>
                             <constraint firstItem="dH9-Sa-W86" firstAttribute="trailing" secondItem="K9Q-M3-fez" secondAttribute="trailing" id="Kbv-EE-lQ7"/>
                             <constraint firstItem="dH9-Sa-W86" firstAttribute="trailing" secondItem="U6K-xU-Tw7" secondAttribute="trailing" id="KyF-B1-j6W"/>
+                            <constraint firstItem="DtF-5k-UEk" firstAttribute="leading" secondItem="dH9-Sa-W86" secondAttribute="leading" id="SG4-ai-7Tz"/>
                             <constraint firstItem="U6K-xU-Tw7" firstAttribute="leading" secondItem="dH9-Sa-W86" secondAttribute="leading" id="Zxc-we-eaz"/>
                             <constraint firstItem="duh-Na-M34" firstAttribute="leading" secondItem="m6d-SO-3NP" secondAttribute="leading" id="aux-jM-SLc"/>
                             <constraint firstItem="dH9-Sa-W86" firstAttribute="trailing" secondItem="cGp-0l-v7X" secondAttribute="trailing" id="fIB-fd-Vkp"/>
-                            <constraint firstItem="cGp-0l-v7X" firstAttribute="top" secondItem="dH9-Sa-W86" secondAttribute="top" id="h4e-aM-btW"/>
+                            <constraint firstItem="cGp-0l-v7X" firstAttribute="top" secondItem="dH9-Sa-W86" secondAttribute="top" priority="998" id="h4e-aM-btW"/>
+                            <constraint firstItem="cGp-0l-v7X" firstAttribute="top" secondItem="DtF-5k-UEk" secondAttribute="bottom" priority="999" id="kaQ-Vy-mHF"/>
                             <constraint firstItem="K9Q-M3-fez" firstAttribute="top" secondItem="cGp-0l-v7X" secondAttribute="bottom" id="pof-u8-esY"/>
+                            <constraint firstItem="dH9-Sa-W86" firstAttribute="trailing" secondItem="DtF-5k-UEk" secondAttribute="trailing" id="sqP-NJ-ocm"/>
                             <constraint firstAttribute="trailing" secondItem="duh-Na-M34" secondAttribute="trailing" id="tmV-Db-plE"/>
                             <constraint firstItem="dH9-Sa-W86" firstAttribute="bottom" secondItem="duh-Na-M34" secondAttribute="bottom" id="uKF-nF-K7f"/>
+                            <constraint firstItem="DtF-5k-UEk" firstAttribute="top" secondItem="dH9-Sa-W86" secondAttribute="top" id="yci-E0-fsY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dH9-Sa-W86"/>
                     </view>
                     <connections>
                         <outlet property="bottomView" destination="duh-Na-M34" id="v9i-Jp-a0O"/>
                         <outlet property="tblList" destination="K9Q-M3-fez" id="Y8U-QE-IXp"/>
+                        <outlet property="topConstraintOfBrekingNews" destination="kaQ-Vy-mHF" id="wXs-TD-ocB"/>
                         <outlet property="viewBrekingNews" destination="cGp-0l-v7X" id="cDA-ER-kFN"/>
                         <outlet property="viewBrekingNewsHeightConstraint" destination="BWA-Oa-cMM" id="Sf1-fa-hgN"/>
                         <outlet property="viewLiveNewsPopup" destination="U6K-xU-Tw7" id="PJR-cr-M7F"/>
@@ -172,4 +205,8 @@
             <point key="canvasLocation" x="479.71014492753625" y="15.401785714285714"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo-Dark" width="913.5" height="205.5"/>
+        <image name="menu" width="27.5" height="27.5"/>
+    </resources>
 </document>

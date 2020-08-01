@@ -14,6 +14,7 @@ enum NewsType: String {
     case Advertise = "Advertise"
     case Photos = "Photos"
     case Videos = "Videos"
+    case Breaking = "Breaking"
     case Text = "Text"
     case Details = "Details"
     case BulletArrow = "BulletArrow"

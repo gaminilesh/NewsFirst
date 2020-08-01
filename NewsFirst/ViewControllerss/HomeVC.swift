@@ -15,12 +15,13 @@ class HomeVC: BaseViewController {
         return HomeVC.viewController(storyboard: Constants.Storyboard.Dashboard)
     }
     
+    @IBOutlet weak var topConstraintOfBrekingNews: NSLayoutConstraint!
     var lastPoint : CGPoint = CGPoint.zero
     var pinViewFram : CGRect = CGRect.zero
     
     @IBOutlet weak var tblList: UITableView!
     @IBOutlet weak var bottomView: UIView!
-//    var reppleView = RippleView.instanceFromNib()
+    //    var reppleView = RippleView.instanceFromNib()
     let bottomTabView = BottomCustomTab.instanceFromNib()
     
     @IBOutlet weak var viewBrekingNews: BreakingNewsView!
@@ -28,60 +29,67 @@ class HomeVC: BaseViewController {
     @IBOutlet weak var viewLiveNewsPopup: LiveNewsPopUpView!
     @IBOutlet weak var viewLiveNewsPopupHeightConstraint: NSLayoutConstraint!
     
-     var newsList = [News]()
-       var current = ""
-       
-       func changeData(str:String) {
-           if let lf = finalData?[str] as? [News] {
-               newsList = lf
-               tblList.reloadData()
-           }
-       }
-       
-       var finalData: [String:Any]?
+    var newsList = [News]()
+    var current = ""
+    var id = 0
+    var name : String! = "Top News"
+    func changeData(str:String) {
+        if let lf = finalData?[str] as? [News] {
+            newsList = lf
+            if newsList.first?._type == NewsType.Breaking.rawValue {
+                newsList.remove(at: 0)
+            }
+            tblList.reloadData()
+        }
+    }
+    
+    var finalData: [String:Any]?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         tblList.tableFooterView = UIView()
         self.viewBrekingNewsHeightConstraint.constant = 80
-
+        
         registeNib()
         
         finalData = JSONReaderManager.sharedInstance.ReadJSON(_insideNodeValue: "Business")
         if let lf = finalData?["Data"] as? [News] {
             newsList = lf
+            if newsList.first?._type == NewsType.Breaking.rawValue {
+                newsList.remove(at: 0)
+            }
             tblList.reloadData()
         }
-      //  self.passJsonFileName(fileName: "Data")
-//        let list = JSONReaderManager.sharedInstance.ReadJSON(_insideNodeValue: "Business")
-//        if list.count > 0 {
-//            for obj in list {
-//                print(obj)
-//                if let json = obj as? [String:Any] {
-//                    newsList.append(News(dict: json))
-//                }
-//            }
-//            tblList.reloadData()
-//        }
-//
+        //  self.passJsonFileName(fileName: "Data")
+        //        let list = JSONReaderManager.sharedInstance.ReadJSON(_insideNodeValue: "Business")
+        //        if list.count > 0 {
+        //            for obj in list {
+        //                print(obj)
+        //                if let json = obj as? [String:Any] {
+        //                    newsList.append(News(dict: json))
+        //                }
+        //            }
+        //            tblList.reloadData()
+        //        }
+        //
         
-//        self.view.addSubview(reppleView)
+        //        self.view.addSubview(reppleView)
         
-//        let img = UIImageView()
-//        img.tag = 120
-//        pinViewFram = CGRect(x: 100, y: 400, width: 100, height: 100)
-//        img.frame = pinViewFram
-//        img.backgroundColor = .red
-//        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.draggedView(_:)))
-//        img.isUserInteractionEnabled = true
-//        img.addGestureRecognizer(panGesture)
-//        
-//        self.view.addSubview(img)
+        //        let img = UIImageView()
+        //        img.tag = 120
+        //        pinViewFram = CGRect(x: 100, y: 400, width: 100, height: 100)
+        //        img.frame = pinViewFram
+        //        img.backgroundColor = .red
+        //        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.draggedView(_:)))
+        //        img.isUserInteractionEnabled = true
+        //        img.addGestureRecognizer(panGesture)
+        //
+        //        self.view.addSubview(img)
         
-//        let panGesture1 = UIPanGestureRecognizer(target: self, action: #selector(self.draggedLiveNewsView(_:)))
-//        viewLiveNewsPopup.isUserInteractionEnabled = true
-//        viewLiveNewsPopup.addGestureRecognizer(panGesture1)
+        //        let panGesture1 = UIPanGestureRecognizer(target: self, action: #selector(self.draggedLiveNewsView(_:)))
+        //        viewLiveNewsPopup.isUserInteractionEnabled = true
+        //        viewLiveNewsPopup.addGestureRecognizer(panGesture1)
         
         bottomView.addSubview(bottomTabView)
         bottomTabView.translatesAutoresizingMaskIntoConstraints = false
@@ -99,48 +107,63 @@ class HomeVC: BaseViewController {
         //        bottomTabView.frame = CGRect(x: 0, y: 200, width: UIScreen.main.bounds.size.width, height: 40)
         //        self.view.addSubview(bottomTabView)
         //bottomTabView.clvList.reloadData()
-
+        
         bottomTabView.selectedActionListener = {[weak self] (content) in
             DispatchQueue.main.async() {
                 if let weakSelf = self {
+                    weakSelf.name = content.name
+                    weakSelf.id = content.id
                     weakSelf.changeData(str: content.fileName)
                     //weakSelf.passJsonFileName(fileName: content.fileName)
                 }
             }
         }
-
-
         
         bottomView.layoutIfNeeded()
         setupNavigation()
         
         // reppleView.frame = CGRect(x: (UIScreen.main.bounds.size.width - 85), y: (UIScreen.main.bounds.size.height - 125), width: 50, height: 50)
         
-//
-//        reppleView.translatesAutoresizingMaskIntoConstraints = false
-//
-//        //        reppleView.addConstraint(NSLayoutConstraint(item: bottomTabView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50))
-//        //         reppleView.addConstraint(NSLayoutConstraint(item: bottomTabView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50))
-//        self.view.addConstraint(NSLayoutConstraint(item: reppleView, attribute: .bottom, relatedBy: .equal, toItem: bottomView, attribute: .top, multiplier: 1, constant: -35))
-//
-//        self.view.addConstraint(NSLayoutConstraint(item: reppleView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: -35))
-//        reppleView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-//        reppleView.widthAnchor.constraint(equalToConstant: 50).isActive = true
-//
-//        reppleView.showRippleEffecr = true
-//
-//        reppleView.onRippleTap = { (sender) in
-//            self.viewLiveNewsPopup.isHidden = false
-//            self.reppleView.isHidden = true
-//        }
-//
+        //
+        //        reppleView.translatesAutoresizingMaskIntoConstraints = false
+        //
+        //        //        reppleView.addConstraint(NSLayoutConstraint(item: bottomTabView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50))
+        //        //         reppleView.addConstraint(NSLayoutConstraint(item: bottomTabView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50))
+        //        self.view.addConstraint(NSLayoutConstraint(item: reppleView, attribute: .bottom, relatedBy: .equal, toItem: bottomView, attribute: .top, multiplier: 1, constant: -35))
+        //
+        //        self.view.addConstraint(NSLayoutConstraint(item: reppleView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: -35))
+        //        reppleView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        //        reppleView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        //
+        //        reppleView.showRippleEffecr = true
+        //
+        //        reppleView.onRippleTap = { (sender) in
+        //            self.viewLiveNewsPopup.isHidden = false
+        //            self.reppleView.isHidden = true
+        //        }
+        //
         viewBrekingNews.onButtonCloseTap = { (sender) in
             self.viewBrekingNewsHeightConstraint.constant = 0
+            //            UIView.animate(withDuration: 0.9, animations: {
+            //                self.view.layoutIfNeeded()
+            //            })
+            
             UIView.animate(withDuration: 0.9, animations: {
                 self.view.layoutIfNeeded()
-            })
+            }) { (flag) in
+                if flag {
+                    self.topConstraintOfBrekingNews.priority = UILayoutPriority(rawValue: 997)
+                    self.view.layoutIfNeeded()
+                }
+            }
+            
         }
-        viewLiveNewsPopup.newsList = [newsList[1], newsList[2]] 
+        viewLiveNewsPopup.newsList = [newsList[1], newsList[2]]
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
     }
     func passJsonFileName(fileName:String)  {
         newsList.removeAll()
@@ -263,7 +286,7 @@ class HomeVC: BaseViewController {
         switch sender.state {
             case .began:
                 let c = sender.location(in: sender.view).y
-//                location(in view: UIView?) -> CGPoint
+                //                location(in view: UIView?) -> CGPoint
                 lastPoint1 = sender.location(in: sender.view).y //sender.view?.frame.origin.y as! CGFloat
                 break;
             case .changed:
@@ -271,48 +294,48 @@ class HomeVC: BaseViewController {
                     //SA
                     let c = sender.location(in: sender.view).y
                     let translation = sender.view?.frame.origin
-//                    let diffX = lastPoint1.x - translation.x
+                    //                    let diffX = lastPoint1.x - translation.x
                     let diffY = lastPoint1 + c
-                  
+                    
                     viewLiveNewsPopupHeightConstraint.constant = viewLiveNewsPopupHeightConstraint.constant - diffY
-                   // viewDrag.layoutIfNeeded()
+                    // viewDrag.layoutIfNeeded()
                     lastPoint1 = c
-                   // sender.view?.frame = pinViewFram
+                    // sender.view?.frame = pinViewFram
                 }
                 break;
             case .ended:
                 if let viewDrag = sender.view as? LiveNewsPopUpView {
-//                    print(viewDrag.frame.origin.x)
-//                    let xPos = (viewDrag.frame.origin.x + viewDrag.frame.width)
-//                    let yPos = (viewDrag.frame.origin.y + viewDrag.frame.height)
-//
-//                    UIView.animate(withDuration: 0.3) {
-//                        viewDrag.transform = CGAffineTransform.identity
-//                    }
-//
-//                    if xPos >= UIScreen.main.bounds.width {
-//                        UIView.animate(withDuration: 0.3) {
-//                            viewDrag.frame.origin.x = (UIScreen.main.bounds.width - viewDrag.frame.width - 10.0)
-//                            self.pinViewFram.origin.x = (UIScreen.main.bounds.width - viewDrag.frame.width - 10.0)
-//                        }
-//                    } else if(viewDrag.frame.origin.x <= 0) {
-//                        UIView.animate(withDuration: 0.3) {
-//                            viewDrag.frame.origin.x = 10.0
-//                            self.pinViewFram.origin.x = 10.0
-//                        }
-//                    }
-//
-//                    if yPos >= UIScreen.main.bounds.height {
-//                        UIView.animate(withDuration: 0.3) {
-//                            viewDrag.frame.origin.y = (UIScreen.main.bounds.height - viewDrag.frame.height - 10.0)
-//                            self.pinViewFram.origin.y = (UIScreen.main.bounds.height - viewDrag.frame.height - 10.0)
-//                        }
-//                    } else if(viewDrag.frame.origin.y <= 80) {
-//                        UIView.animate(withDuration: 0.3) {
-//                            viewDrag.frame.origin.y = 80.0
-//                            self.pinViewFram.origin.y = 80.0
-//                        }
-//                    }
+                    //                    print(viewDrag.frame.origin.x)
+                    //                    let xPos = (viewDrag.frame.origin.x + viewDrag.frame.width)
+                    //                    let yPos = (viewDrag.frame.origin.y + viewDrag.frame.height)
+                    //
+                    //                    UIView.animate(withDuration: 0.3) {
+                    //                        viewDrag.transform = CGAffineTransform.identity
+                    //                    }
+                    //
+                    //                    if xPos >= UIScreen.main.bounds.width {
+                    //                        UIView.animate(withDuration: 0.3) {
+                    //                            viewDrag.frame.origin.x = (UIScreen.main.bounds.width - viewDrag.frame.width - 10.0)
+                    //                            self.pinViewFram.origin.x = (UIScreen.main.bounds.width - viewDrag.frame.width - 10.0)
+                    //                        }
+                    //                    } else if(viewDrag.frame.origin.x <= 0) {
+                    //                        UIView.animate(withDuration: 0.3) {
+                    //                            viewDrag.frame.origin.x = 10.0
+                    //                            self.pinViewFram.origin.x = 10.0
+                    //                        }
+                    //                    }
+                    //
+                    //                    if yPos >= UIScreen.main.bounds.height {
+                    //                        UIView.animate(withDuration: 0.3) {
+                    //                            viewDrag.frame.origin.y = (UIScreen.main.bounds.height - viewDrag.frame.height - 10.0)
+                    //                            self.pinViewFram.origin.y = (UIScreen.main.bounds.height - viewDrag.frame.height - 10.0)
+                    //                        }
+                    //                    } else if(viewDrag.frame.origin.y <= 80) {
+                    //                        UIView.animate(withDuration: 0.3) {
+                    //                            viewDrag.frame.origin.y = 80.0
+                    //                            self.pinViewFram.origin.y = 80.0
+                    //                        }
+                    //                    }
                     viewDrag.layoutIfNeeded()
                     viewDrag.setNeedsLayout()
                     viewDrag.setNeedsDisplay()
@@ -342,9 +365,6 @@ class HomeVC: BaseViewController {
         return ((point.x) > 0 && (viewDrag.frame.origin.x + viewDrag.frame.width) < UIScreen.main.bounds.width) &&
             (point.y > 0 && point.y < UIScreen.main.bounds.height)
     }
-    
-    
-    
 }
 extension HomeVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -399,6 +419,8 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
         print("Selected Cell : \(indexPath.row)")
         if news._type == NewsType.List.rawValue {
             let controller = SubHomeVC.getInstance()
+            controller.name = name
+            controller.selectedId = id
             controller.jsonFileName = "\(indexPath.row > 3 ? 1 : indexPath.row)"
             self.navigationController?.pushViewController(controller, animated: true)
         }

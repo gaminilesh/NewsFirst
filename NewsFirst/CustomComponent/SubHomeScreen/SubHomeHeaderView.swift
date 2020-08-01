@@ -49,7 +49,15 @@ class SubHomeHeaderView: UIView {
 //            self.layoutIfNeeded()
 //        })
     }
-
+    
+    
+    var handleBackButton : ((UIButton)->Void)? = nil
+    @IBAction func btnBackTap(_ sender: UIButton) {
+        if handleBackButton != nil {
+            handleBackButton?(sender)
+        }
+    }
+    
     
 }
 

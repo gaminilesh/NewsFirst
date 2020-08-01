@@ -31,6 +31,27 @@ class BottomCustomTab: UIView {
         return UINib(nibName: "BottomCustomTab", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! BottomCustomTab
     }
     
+    override class func awakeFromNib() {
+        
+    }
+    var selectIndex :Int! {
+        didSet {
+            if selectIndex < newsCategotyList.count {
+                let selectedData = newsCategotyList.filter { (model) -> Bool in
+                    model.isSelected == true
+                }
+                for model in selectedData {
+                    model.isSelected = false
+                }
+                newsCategotyList[selectIndex].isSelected = true
+                if let selectedActionListener = selectedActionListener {
+                    selectedActionListener(newsCategotyList[selectIndex])
+                }
+                clvList.reloadData()
+            }
+        }
+    }
+    
     override func draw(_ rect: CGRect) {
         setUI()
     }
