@@ -42,12 +42,12 @@ class SubHomeHeaderView: UIView {
 
     }
     func hideWithAnimation(hidden: Bool) {
-        UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
-            self.viewCount.alpha = 0 // Here you will get the animation you want
-        }, completion: { _ in
-            self.viewCount.isHidden = true // Here you hide it when animation done
-            self.layoutIfNeeded()
-        })
+//        UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
+//            self.viewCount.alpha = 0 // Here you will get the animation you want
+//        }, completion: { _ in
+//            self.viewCount.isHidden = true // Here you hide it when animation done
+//            self.layoutIfNeeded()
+//        })
     }
 
     

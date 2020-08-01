@@ -31,7 +31,7 @@ class SubHomeVC: BaseViewController {
     
     var newsDetail: NewsDetail?
     var jsonFileName: String = "0"
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
@@ -69,7 +69,7 @@ class SubHomeVC: BaseViewController {
         geaderView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         geaderView.backgroundColor = .yellow
         tblList.tableHeaderView = geaderView
-        tblList.tableHeaderView?.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        // tblList.tableHeaderView?.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         v.translatesAutoresizingMaskIntoConstraints = false
         geaderView.addConstraint(NSLayoutConstraint(item: v, attribute: .top, relatedBy: .equal, toItem: geaderView, attribute: .top, multiplier: 1, constant: 0))
@@ -78,6 +78,20 @@ class SubHomeVC: BaseViewController {
         v.heightAnchor.constraint(equalToConstant: 80).isActive = true
         
         geaderView.clipsToBounds = true
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.hideWithAnimation(hidden: true)
+        }
+    }
+    
+    func hideWithAnimation(hidden: Bool) {
+        tblList.beginUpdates()
+        //  heightConstraint.constant = 0
+        UIView.animate(withDuration: 0.3) {
+            self.tblList.tableHeaderView = self.geaderView
+            self.geaderView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 50)
+        }
+        tblList.endUpdates()
     }
     
     //TODO:- Custome Navigation Render.
@@ -93,7 +107,7 @@ class SubHomeVC: BaseViewController {
         tblList.register(UINib(nibName: "SubHomeBulletCell", bundle: nil), forCellReuseIdentifier: "SubHomeBulletCell")
         tblList.register(UINib(nibName: "SubHomeTextCell", bundle: nil), forCellReuseIdentifier: "SubHomeTextCell")
         tblList.register(UINib(nibName: "SubHomeDetailCell", bundle: nil), forCellReuseIdentifier: "SubHomeDetailCell")
-        
+        tblList.register(UINib(nibName: "HomeAdvertiseCell", bundle: nil), forCellReuseIdentifier: "HomeAdvertiseCell")
     }
 }
 extension SubHomeVC : UITableViewDelegate, UITableViewDataSource {
@@ -143,7 +157,11 @@ extension SubHomeVC : UITableViewDelegate, UITableViewDataSource {
             cell?.objNews = news
             return cell ?? UITableViewCell()
         }
-        
+        else if news._type == NewsType.Advertise.rawValue {
+                   let cell = tableView.dequeueReusableCell(withIdentifier: "HomeAdvertiseCell") as? HomeAdvertiseCell
+                   cell?.objNews = news
+                   return cell ?? UITableViewCell()
+               }
         
 //        print("Index Of cell id :\(indexPath.row) and Cell Type is \(news._type)")
 //        // print(news.type)
@@ -181,16 +199,6 @@ extension SubHomeVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Selected Cell : \(indexPath.row)")
-        tblList.beginUpdates()
-        
-         
-      //  heightConstraint.constant = 0
-        UIView.animate(withDuration: 0.3) {
-           self.tblList.tableHeaderView = self.geaderView
-            self.geaderView.frame = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 50)
-        }
-        tblList.endUpdates()
-        
     }
     
 }

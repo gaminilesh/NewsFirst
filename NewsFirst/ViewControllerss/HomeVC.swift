@@ -28,7 +28,17 @@ class HomeVC: BaseViewController {
     @IBOutlet weak var viewLiveNewsPopup: LiveNewsPopUpView!
     @IBOutlet weak var viewLiveNewsPopupHeightConstraint: NSLayoutConstraint!
     
-    var newsList = [News]()
+     var newsList = [News]()
+       var current = ""
+       
+       func changeData(str:String) {
+           if let lf = finalData?[str] as? [News] {
+               newsList = lf
+               tblList.reloadData()
+           }
+       }
+       
+       var finalData: [String:Any]?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -37,7 +47,13 @@ class HomeVC: BaseViewController {
         self.viewBrekingNewsHeightConstraint.constant = 80
 
         registeNib()
-        self.passJsonFileName(fileName: "Data")
+        
+        finalData = JSONReaderManager.sharedInstance.ReadJSON(_insideNodeValue: "Business")
+        if let lf = finalData?["Data"] as? [News] {
+            newsList = lf
+            tblList.reloadData()
+        }
+      //  self.passJsonFileName(fileName: "Data")
 //        let list = JSONReaderManager.sharedInstance.ReadJSON(_insideNodeValue: "Business")
 //        if list.count > 0 {
 //            for obj in list {
@@ -86,9 +102,9 @@ class HomeVC: BaseViewController {
 
         bottomTabView.selectedActionListener = {[weak self] (content) in
             DispatchQueue.main.async() {
-                // your UI update code
                 if let weakSelf = self {
-                    weakSelf.passJsonFileName(fileName: content.fileName)
+                    weakSelf.changeData(str: content.fileName)
+                    //weakSelf.passJsonFileName(fileName: content.fileName)
                 }
             }
         }
@@ -162,6 +178,10 @@ class HomeVC: BaseViewController {
         tblList.register(UINib(nibName: "HomeImageWithTextCell", bundle: nil), forCellReuseIdentifier: "HomeImageWithTextCell")
         tblList.register(UINib(nibName: "HomePhotoCell", bundle: nil), forCellReuseIdentifier: "HomePhotoCell")
         tblList.register(UINib(nibName: "HomeTitleCell", bundle: nil), forCellReuseIdentifier: "HomeTitleCell")
+        
+        tblList.register(UINib(nibName: "HomeAdvertiseCell", bundle: nil), forCellReuseIdentifier: "HomeAdvertiseCell")
+        
+        
         
     }
     
@@ -361,6 +381,11 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
             cell?.objNews = news
             return cell ?? UITableViewCell()
         }
+        else if news._type == NewsType.Advertise.rawValue {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "HomeAdvertiseCell") as? HomeAdvertiseCell
+            cell?.objNews = news
+            return cell ?? UITableViewCell()
+        }
         return UITableViewCell()
 //
 //        //
@@ -390,36 +415,56 @@ import SwiftyJSON
 class JSONReaderManager
 {
     static let sharedInstance = JSONReaderManager()
-    func ReadJSON(_insideNodeValue:String!) -> NSArray
-    {
-           if let path = Bundle.main.path(forResource: "newsfirst-Backupexport", ofType: "json") {
-               do {
-                   let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+    func ReadJSON(_insideNodeValue:String!) -> [String:Any] {
+        if let path = Bundle.main.path(forResource: "newsfirst-Backupexport", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
                 do {
                     let v = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
                     print("=================")
                     print(v)
                     print("=================")
-                              } catch {
-                                  print(error.localizedDescription)
-                              }
-                   let jsonObj = try JSON(data: data)
-                   let TabValues = jsonObj["Data1"]["Dashboard"][_insideNodeValue] // print(jsonObj["Data1"]["Dashboard"].dictionary?.keys)
-                   let allvalues = convertToDictionary(text: TabValues.stringValue)!
-                   let requestDataDict:NSDictionary = allvalues as NSDictionary
-                   let newDict =  ((requestDataDict.value(forKey: "Dashboard") as! NSArray)[0] as! NSDictionary).value(forKey: "Data") as! NSArray
-                   print(newDict)
-                   return newDict
-                   
-               } catch let error {
-                    print("parse error: \(error.localizedDescription)")
-                    return []
-               }
-           } else {
-               print("Invalid filename/path.")
-                return []
-           }
-       }
+                } catch {
+                    print(error.localizedDescription)
+                }
+                
+                let jsonObj = try JSON(data: data)
+                
+                var finalDict = [String:Any]()
+                if let fj = jsonObj["Data1"]["Dashboard"].dictionaryObject {
+                    for str in fj.keys {
+                         var newsList = [News]()
+                        let allvalues = convertToDictionary(text: (jsonObj["Data1"]["Dashboard"][str].stringValue))!
+                        let requestDataDict:NSDictionary = allvalues as NSDictionary
+                        var newDict = ((requestDataDict.value(forKey: "Dashboard") as! NSArray)[0] as! NSDictionary).value(forKey: "Data") as! NSArray
+                        if newDict.count > 0 {
+                            for obj in newDict {
+                                if let json = obj as? [String:Any] {
+                                    newsList.append(News(dict: json))
+                                }
+                            }
+                        }
+                        finalDict[str] = newsList
+                    }
+                }
+                return finalDict
+//                let TabValues = jsonObj["Data1"]["Dashboard"][_insideNodeValue] // print(jsonObj["Data1"]["Dashboard"].dictionary?.keys)
+//                let allvalues = convertToDictionary(text: TabValues.stringValue)!
+//                let requestDataDict:NSDictionary = allvalues as NSDictionary
+//                let newDict =  ((requestDataDict.value(forKey: "Dashboard") as! NSArray)[0] as! NSDictionary).value(forKey: "Data") as! NSArray
+//                print(newDict)
+//                return newDict
+                
+            } catch let error {
+                print("parse error: \(error.localizedDescription)")
+                return [String:Any]()
+            }
+        } else {
+            print("Invalid filename/path.")
+            return [String:Any]()
+        }
+       
+    }
      func convertToDictionary(text: String) -> [String: Any]? {
            if let data = text.data(using: .utf8) {
                do {
