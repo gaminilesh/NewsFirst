@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="63" id="KGk-i7-Jjw" customClass="SubHomeBulletCell" customModule="NewsFirst" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KqK-8k-bZ5">
+                        <rect key="frame" x="15" y="5" width="290" height="14.5"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPk-3n-iy3">
+                                <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="bEU-cU-AOg"/>
+                                    <constraint firstAttribute="width" constant="15" id="iuP-On-rIu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal" image="aboutNewsfirst">
+                                    <color key="titleColor" red="0.99607843139999996" green="0.32156862749999998" blue="0.32156862749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMu-cl-vxP">
+                                <rect key="frame" x="20" y="0.0" width="270" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="oMu-cl-vxP" secondAttribute="trailing" id="Aqs-ie-GLF"/>
+                            <constraint firstItem="XPk-3n-iy3" firstAttribute="leading" secondItem="KqK-8k-bZ5" secondAttribute="leading" id="EPi-zm-c5U"/>
+                            <constraint firstAttribute="bottom" secondItem="oMu-cl-vxP" secondAttribute="bottom" id="LRt-Yh-M5S"/>
+                            <constraint firstItem="oMu-cl-vxP" firstAttribute="top" secondItem="KqK-8k-bZ5" secondAttribute="top" id="SNv-XN-Kug"/>
+                            <constraint firstItem="oMu-cl-vxP" firstAttribute="leading" secondItem="XPk-3n-iy3" secondAttribute="trailing" constant="5" id="iya-4u-7lM"/>
+                            <constraint firstItem="XPk-3n-iy3" firstAttribute="top" secondItem="KqK-8k-bZ5" secondAttribute="top" id="s8Z-Dt-BHj"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="KqK-8k-bZ5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="0lQ-Xd-9cl"/>
+                    <constraint firstItem="KqK-8k-bZ5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Juk-yl-tnk"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="KqK-8k-bZ5" secondAttribute="bottom" constant="5" id="bza-PC-OJL"/>
+                    <constraint firstAttribute="trailing" secondItem="KqK-8k-bZ5" secondAttribute="trailing" constant="15" id="dDH-W5-HDa"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btnBullet" destination="XPk-3n-iy3" id="v76-JM-XpP"/>
+                <outlet property="lblText" destination="oMu-cl-vxP" id="v5e-Bo-X6f"/>
+            </connections>
+            <point key="canvasLocation" x="-100.00000000000001" y="15.736607142857142"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="aboutNewsfirst" width="12" height="12"/>
+    </resources>
+</document>

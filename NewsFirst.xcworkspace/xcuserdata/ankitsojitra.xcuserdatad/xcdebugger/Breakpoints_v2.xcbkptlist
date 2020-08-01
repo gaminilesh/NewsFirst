@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "4A7E7595-1FCA-4575-B1A4-C831AF9BC23D"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EF5709A5-47F7-4B49-8A0C-3DC7C7C34E4E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewsFirst/ViewControllers/HomeVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "draggedView(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EF5709A5-47F7-4B49-8A0C-3DC7C7C34E4E - c04e12ea24090dff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewsFirst.HomeVC.draggedView(__C.UIPanGestureRecognizer) -&gt; ()"
+                  moduleName = "NewsFirst"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ankitsojitra/Git%20Project/NewsFirst/AppCode/trunk/NewsFirst/ViewControllers/HomeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "196"
+                  endingLineNumber = "196"
+                  offsetFromSymbolStart = "5748">
+               </Location>
+               <Location
+                  uuid = "EF5709A5-47F7-4B49-8A0C-3DC7C7C34E4E - ccbeb5e3f9ed810f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #5 () -&gt; () in NewsFirst.HomeVC.draggedView(__C.UIPanGestureRecognizer) -&gt; ()"
+                  moduleName = "NewsFirst"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ankitsojitra/Git%20Project/NewsFirst/AppCode/trunk/NewsFirst/ViewControllers/HomeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "197"
+                  endingLineNumber = "197"
+                  offsetFromSymbolStart = "37">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DA2EE99F-1ACD-4860-A6C1-66EA0497DC82"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewsFirst/ViewControllers/HomeVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
+            landmarkName = "draggedLiveNewsView(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A160684B-5FA4-4307-85AE-EAEB105A2391"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewsFirst/ViewControllers/HomeVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
+            landmarkName = "draggedLiveNewsView(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "406BE9EE-C4A7-4E76-B071-FA9B1970B29E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewsFirst/ViewControllers/SubHomeVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "356"
+            endingLineNumber = "356"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "406BE9EE-C4A7-4E76-B071-FA9B1970B29E - b567898df844822f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewsFirst.SubHomeVC.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "NewsFirst"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ankitsojitra/Git%20Project/NewsFirst/AppCode/trunk/NewsFirst/ViewControllers/SubHomeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "354"
+                  endingLineNumber = "354"
+                  offsetFromSymbolStart = "1287">
+               </Location>
+               <Location
+                  uuid = "406BE9EE-C4A7-4E76-B071-FA9B1970B29E - f24a487683f5c08b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in NewsFirst.SubHomeVC.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "NewsFirst"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ankitsojitra/Git%20Project/NewsFirst/AppCode/trunk/NewsFirst/ViewControllers/SubHomeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "355"
+                  endingLineNumber = "355"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
