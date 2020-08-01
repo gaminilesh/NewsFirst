@@ -9,7 +9,7 @@
 import UIKit
 import SideMenu
 
-class HomeVC: BaseViewController {
+class HomeVC: BaseViewController,MyDataSendingDelegateProtocol {
     
     class func getInstance()-> HomeVC {
         return HomeVC.viewController(storyboard: Constants.Storyboard.Dashboard)
@@ -56,6 +56,13 @@ class HomeVC: BaseViewController {
         present(menu, animated: true, completion: nil)
     }
     var finalData: [String:Any]?
+    func selectedBottomMenu(contentModel: BottomTabMenuModel) {
+        bottomTabView.selectIndex = contentModel.id
+        self.name = contentModel.name
+        self.id = contentModel.id
+        self.changeData(str: contentModel.fileName)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -431,6 +438,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
         print("Selected Cell : \(indexPath.row)")
         if news._type == NewsType.List.rawValue {
             let controller = SubHomeVC.getInstance()
+            controller.delegate = self
             controller.name = name
             controller.selectedId = id
             controller.jsonFileName = "\(indexPath.row > 3 ? 1 : indexPath.row)"

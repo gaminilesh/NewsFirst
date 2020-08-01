@@ -6,13 +6,17 @@
 //  Copyright © 2020 iOS Dev. All rights reserved.
 //
 import UIKit
+protocol MyDataSendingDelegateProtocol {
+    func selectedBottomMenu(contentModel: BottomTabMenuModel)
+}
 
 class SubHomeVC: BaseViewController {
     
     class func getInstance()-> SubHomeVC {
         SubHomeVC.viewController(storyboard: Constants.Storyboard.Dashboard)
     }
-    
+    var delegate: MyDataSendingDelegateProtocol? = nil
+
     var lastPoint : CGPoint = CGPoint.zero
     var pinViewFram : CGRect = CGRect.zero
     var selectedId = 0
@@ -43,6 +47,7 @@ class SubHomeVC: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         bottomTabView.selectIndex = selectedId
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,11 +107,14 @@ class SubHomeVC: BaseViewController {
         bottomTabView.selectedActionListener = {[weak self] (content) in
             DispatchQueue.main.async() {
                 if let weakSelf = self {
-                    //   weakSelf.changeData(str: content.fileName)
-                    //weakSelf.passJsonFileName(fileName: content.fileName)
+                    if weakSelf.bottomTabView.selectIndex != content.id{
+                        weakSelf.delegate?.selectedBottomMenu(contentModel: content)
+                        weakSelf.navigationController?.popViewController(animated: true)
+                    }
                 }
             }
         }
+
         v.lblTitle.text = name
         v.handleBackButton = { [weak self] (sender) in
             if let weakSelf = self {
